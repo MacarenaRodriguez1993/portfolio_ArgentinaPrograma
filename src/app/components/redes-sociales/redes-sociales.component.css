@@ -1,0 +1,16 @@
+div{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -80px;
+}
+a img{
+    width:50px;
+    padding: 4px;
+}
+.btn-primary{
+    background:#7dda0c;
+    border-radius: 10px;
+    font-size: 1.3em;
+    border:none;
+    margin-right: 7px;
+}
