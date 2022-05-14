@@ -1,7 +1,7 @@
 
 package com.portfolio.backend.Controller;
 
-import com.portfolio.backend.model.Personas;
+import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.service.IPersonasService;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,13 +26,13 @@ public class PersonasController {
         
         //TRAER LISTA DE PERSONAS
         @GetMapping("/personas/traer")
-        public List<Personas> getPersonas(){
+        public List<Persona> getPersonas(){
             return iPersonas.getPersonas();
         }
         
         //CREAR UNA NUEVA PERSONAS
         @PostMapping("/personas/crear")
-        public String crearPersona (@RequestBody Personas perso){
+        public String crearPersona (@RequestBody Persona perso){
             iPersonas.savePersona(perso);
             return "Se agrego una nueva personas";
         }
@@ -46,11 +46,11 @@ public class PersonasController {
         
         //EDITAR LOS DATOS DE UNA PERSONA
         @PutMapping("/personas/editar/{id}")
-        public Personas editarPersonas(@PathVariable Long id,
+        public Persona editarPersonas(@PathVariable Long id,
                                                             @RequestParam ("nombre") String nuevoNombre,
                                                             @RequestParam ("apellido") String nuevoApellido,
                                                             @RequestParam("mail") String nuevoMail ){
-            Personas perso =iPersonas.findPersona(id);
+            Persona perso =iPersonas.findPersona(id);
             
             perso.setNombre(nuevoNombre);
             perso.setApellido(nuevoApellido);

@@ -1,7 +1,7 @@
 
 package com.portfolio.backend.service;
 
-import com.portfolio.backend.model.Personas;
+import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.repository.PersonasRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +19,13 @@ public class PersonasService implements IPersonasService{
         private PersonasRepository persRepository;
 
     @Override
-    public List<Personas> getPersonas() {
-            List<Personas> listadoPersonas=persRepository.findAll();
+    public List<Persona> getPersonas() {
+            List<Persona> listadoPersonas=persRepository.findAll();
             return listadoPersonas;
     }
 
     @Override
-    public void savePersona(Personas person) {
+    public void savePersona(Persona person) {
         persRepository.save(person);
     }
 
@@ -35,8 +35,8 @@ public class PersonasService implements IPersonasService{
     }
 
     @Override
-    public Personas findPersona(Long id) {
-        Personas perso=persRepository.findById(id).orElse(null);
+    public Persona findPersona(Long id) {
+        Persona perso=persRepository.findById(id).orElse(null);
         return perso;
     }
     

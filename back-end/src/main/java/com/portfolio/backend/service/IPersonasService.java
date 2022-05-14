@@ -1,7 +1,7 @@
 
 package com.portfolio.backend.service;
 
-import com.portfolio.backend.model.Personas;
+import com.portfolio.backend.model.Persona;
 import java.util.List;
 
 /**
@@ -11,16 +11,16 @@ import java.util.List;
 public interface IPersonasService {
     
     //METODO - traer/ver las personas
-    public List<Personas> getPersonas();
+    public List<Persona> getPersonas();
     
     //METODO - dar de alta/agregar una persona nueva
-    public void savePersona (Personas person);
+    public void savePersona (Persona person);
     
     //METODO - eliminar una persona
     public void deletePersona (Long id);
     
     //METODO - buscar/encontrar una persona por id
-    public Personas findPersona(Long id);
+    public Persona findPersona(Long id);
     
     
 }
