@@ -25,8 +25,7 @@ public class ExperienciaController {
         
         @PostMapping("/personas/{persona_id}/experiencias")
         public Experiencia guardarExperiencia (@PathVariable(value="persona_id") Long persona_id, @Valid @RequestBody Experiencia exp){
-            return persRepository.findById(persona_id).map(persona ->{
-                exp.setPersona(persona);
+            return persRepository.findById(persona_id).map(persona ->{exp.setPersona(persona);
                 return expRepository.save(exp);
             }).orElseThrow(()->null);
             

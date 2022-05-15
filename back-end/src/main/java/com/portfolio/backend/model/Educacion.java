@@ -1,4 +1,3 @@
-
 package com.portfolio.backend.model;
 
 import javax.persistence.Entity;
@@ -18,37 +17,23 @@ import org.hibernate.annotations.OnDeleteAction;
  */
 @Entity
 public class Educacion {
-    
-        @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        private Long id;
-        
-        @NotNull
-        private String establecimiento;
-        @NotNull
-        private String nombre;
-        private int año;
-        
-        @NotNull
-        private String descripcion;
-        
-        
-        @ManyToOne(fetch=FetchType.LAZY, optional = false)
-        @JoinColumn(name="persona_id", nullable=false)
-        @OnDelete(action = OnDeleteAction.CASCADE)
-        private Persona persona;
 
-    public Educacion() {
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-    public Educacion(Long id, String establecimiento, String nombre, int año, String descripcion, Persona persona) {
-        this.id = id;
-        this.establecimiento = establecimiento;
-        this.nombre = nombre;
-        this.año = año;
-        this.descripcion = descripcion;
-        this.persona = persona;
-    }
+    @NotNull
+    private String establecimiento;
+    @NotNull
+    private String nombre;
+    private int año;
+
+    @NotNull
+    private String descripcion;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "persona_id", nullable = false)
+    private Persona persona;
 
     public Long getId() {
         return id;
@@ -97,7 +82,29 @@ public class Educacion {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
-        
-        
-        
+
+    public Educacion() {
+    }
+
+    public Educacion(Long id, String establecimiento, String nombre, int año, String descripcion, Persona persona) {
+        this.id = id;
+        this.establecimiento = establecimiento;
+        this.nombre = nombre;
+        this.año = año;
+        this.descripcion = descripcion;
+        this.persona = persona;
+    }
+
+    public Educacion(String establecimiento, String nombre, int año, String descripcion, Persona persona) {
+        this.establecimiento = establecimiento;
+        this.nombre = nombre;
+        this.año = año;
+        this.descripcion = descripcion;
+        this.persona = persona;
+    }
+
+    public Educacion(String nombre) {
+        this.nombre = nombre;
+    }
+
 }
