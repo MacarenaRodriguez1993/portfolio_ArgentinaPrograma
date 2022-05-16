@@ -1,4 +1,4 @@
-/*
+
 package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.Educacion;
@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Macarena Rodriguez
  */
-/*
+
 public class EducacionService implements IEducacionService{
     
     @Autowired
@@ -24,8 +24,8 @@ public class EducacionService implements IEducacionService{
     }
 
     @Override
-    public void saveEducacion(Educacion edu) {
-        eduRepository.save(edu);
+    public void saveEducacion(Educacion educ) {
+        eduRepository.save(educ);
     }
 
     @Override
@@ -40,4 +40,3 @@ public class EducacionService implements IEducacionService{
     }
     
 }
-*/
