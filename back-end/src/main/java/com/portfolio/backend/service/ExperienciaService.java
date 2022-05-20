@@ -6,11 +6,13 @@ import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.repository.ExperienciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Macarena Rodriguez
  */
+@Service
 public class ExperienciaService implements IExperienciaService{
 
     @Autowired
@@ -23,9 +25,9 @@ public class ExperienciaService implements IExperienciaService{
     }
 
     @Override
-    public void saveExperiencia(Experiencia exp) {
+    public Experiencia saveExperiencia(Experiencia exp) {
 
-        expRepository.save(exp);
+        return expRepository.save(exp);
     }
 
     @Override

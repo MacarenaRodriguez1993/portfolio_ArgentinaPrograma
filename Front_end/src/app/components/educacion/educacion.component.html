@@ -1,26 +1,21 @@
 <div class="container ">
     <h1 >EDUCACION</h1>
-    <div class="row">
+    <div class="row" *ngFor="let educacion of edu">
         <div class="col-5">
             <img src="../../../assets/imagenes/facebook.jpg" alt="">
         </div>
        <div class="col-7">
             <div class="row">
                 <div class="col-9">
-                    <h2>Colegio-Universidad</h2>
+                    <h2>{{educacion.educacion_establecimiento}} - {{educacion.educacion_nombre}}</h2>
                 </div>
                 <div class="col-3">
-                    <h4>Años</h4>
+                    <h4>{{educacion.educacion_fecha}}</h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nisi ab nobis rerum. Odio veritatis nesciunt labore
-                        vitae sunt deleniti, praesentium qui corporis. Repudiandae a sit suscipit voluptatum distinctio modi!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, vel, sit saepe quisquam nesciunt cupiditate
-                        reiciendis aperiam provident reprehenderit maiores alias doloremque deserunt culpa autem dolorum ex cum dolorem
-                        voluptates.
-                    </p>
+                    <p>{{educacion.educacion_descripcion}}</p>
                 </div>
             </div>
        </div>

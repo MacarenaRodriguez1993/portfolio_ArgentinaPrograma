@@ -5,12 +5,13 @@ import com.portfolio.backend.model.Educacion;
 import com.portfolio.backend.repository.EducacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Macarena Rodriguez
  */
-
+@Service
 public class EducacionService implements IEducacionService{
     
     @Autowired
@@ -18,8 +19,7 @@ public class EducacionService implements IEducacionService{
 
     @Override
     public List<Educacion> getEducacion() {
-        List<Educacion> listaEducacion =eduRepository.findAll();
-        
+        List<Educacion> listaEducacion =eduRepository.findAll();   
         return listaEducacion;
     }
 

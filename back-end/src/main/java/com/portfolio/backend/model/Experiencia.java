@@ -2,15 +2,12 @@
 package com.portfolio.backend.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+
 
 
 
@@ -23,76 +20,58 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Experiencia{
     
-        @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long experiencia_id;
         
-        @NotNull
-        private String nombre;
-        
-        
-        private String años;
-        
-        @NotNull
-        private String descripcion;
+    @NotNull
+    private String experiencia_nombre;
         
         
-        @ManyToOne(fetch=FetchType.LAZY, optional = false)
-        @JoinColumn(name="persona_id" , nullable=false)
-        @OnDelete(action = OnDeleteAction.CASCADE)
-        private Persona persona;
+    private String experiencia_fecha;
+        
+    @NotNull
+    private String experiencia_descripcion;
 
     public Experiencia() {
     }
 
-    public Experiencia(Long id, String nombre, String años, String descripcion, Persona persona) {
-        this.id = id;
-        this.nombre = nombre;
-        this.años = años;
-        this.descripcion = descripcion;
-        this.persona = persona;
+    public Experiencia(Long experiencia_id, String experiencia_nombre, String experiencia_fecha, String experiencia_descripcion) {
+        this.experiencia_id = experiencia_id;
+        this.experiencia_nombre = experiencia_nombre;
+        this.experiencia_fecha = experiencia_fecha;
+        this.experiencia_descripcion = experiencia_descripcion;
     }
 
-    public Long getId() {
-        return id;
+    public Long getExperiencia_id() {
+        return experiencia_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setExperiencia_id(Long experiencia_id) {
+        this.experiencia_id = experiencia_id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getExperiencia_nombre() {
+        return experiencia_nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setExperiencia_nombre(String experiencia_nombre) {
+        this.experiencia_nombre = experiencia_nombre;
     }
 
-    public String getAños() {
-        return años;
+    public String getExperiencia_fecha() {
+        return experiencia_fecha;
     }
 
-    public void setAños(String años) {
-        this.años = años;
+    public void setExperiencia_fecha(String experiencia_fecha) {
+        this.experiencia_fecha = experiencia_fecha;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getExperiencia_descripcion() {
+        return experiencia_descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setExperiencia_descripcion(String experiencia_descripcion) {
+        this.experiencia_descripcion = experiencia_descripcion;
     }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-   
-        
-
 }

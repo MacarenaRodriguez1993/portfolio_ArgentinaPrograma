@@ -1,30 +1,26 @@
-<div class="container ">
+<div class="container " >
     <h1>EXPERIENCIAS LABORALES</h1>
-    <div class="row ">
+    <div class="row" *ngFor="let experiencia of experiencia">
         <div class="col-5">
             <img src="../../../assets/imagenes/instagram.jpg" alt="">
         </div>
        <div class="col-7">
             <div class="row">
                 <div class="col-9">
-                    <h2> Nombre</h2>
+                    <h2>{{experiencia.experiencia_nombre}}</h2>
                 </div>
                 <div class="col-3">
-                    <h4>Años</h4>
+                    <h4>{{experiencia.experiencia_fecha}}</h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nisi ab nobis rerum. Odio veritatis nesciunt labore
-                        vitae sunt deleniti, praesentium qui corporis. Repudiandae a sit suscipit voluptatum distinctio modi!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, vel, sit saepe quisquam nesciunt cupiditate
-                        reiciendis aperiam provident reprehenderit maiores alias doloremque deserunt culpa autem dolorum ex cum dolorem
-                        voluptates.
+                    <p>{{experiencia.experiencia_descripcion}}
                     </p>
                 </div>
             </div>
        </div>
     </div>
     
-
 </div>
+

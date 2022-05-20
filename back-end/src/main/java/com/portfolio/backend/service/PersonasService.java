@@ -19,10 +19,10 @@ public class PersonasService implements IPersonasService{
         private PersonasRepository persRepository;
 
     @Override
-    public List<Persona> getPersonas() {
-            List<Persona> listadoPersonas=persRepository.findAll();
-            return listadoPersonas;
+    public List<Persona> getPersonas(){
+        return persRepository.findAll();
     }
+   
 
     @Override
     public void savePersona(Persona person) {
@@ -39,5 +39,7 @@ public class PersonasService implements IPersonasService{
         Persona perso=persRepository.findById(id).orElse(null);
         return perso;
     }
+
+ 
     
 }

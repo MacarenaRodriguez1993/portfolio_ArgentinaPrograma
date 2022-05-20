@@ -1,104 +1,87 @@
 
 package com.portfolio.backend.model;
 
+
+import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
- * @author macab
+ * @author Macarena Rodriguez
  */
 
 @Entity
-public class Proyecto {
-    
-        @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        private Long id;
-        @NotNull
-        private String nombre;
+public class Proyecto implements Serializable {
+   
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long proyecto_id;
+    @NotNull
+    private String proyecto_nombre;
+    @NotNull    
+    private String proyecto_fecha;
+    @NotNull
+    private String proyecto_url;
         
-        private String fecha;
-        @NotNull
-        private String url;
-        
-        @NotNull
-        private String descripcion;
-        
-        
-        @ManyToOne(fetch=FetchType.LAZY, optional = false)
-        @JoinColumn(name="persona_id" , nullable=false)
-        @OnDelete(action = OnDeleteAction.CASCADE)
-        private Persona persona;
+    @NotNull
+    private String proyecto_descripcion;
 
     public Proyecto() {
     }
 
-    public Proyecto(Long id, String nombre, String fecha, String url, String descripcion, Persona persona) {
-        this.id = id;
-        this.nombre = nombre;
-        this.fecha = fecha;
-        this.url = url;
-        this.descripcion = descripcion;
-        this.persona = persona;
+    public Proyecto(Long proyecto_id, String proyecto_nombre, String proyecto_fecha, String proyecto_url, String proyecto_descripcion) {
+        this.proyecto_id = proyecto_id;
+        this.proyecto_nombre = proyecto_nombre;
+        this.proyecto_fecha = proyecto_fecha;
+        this.proyecto_url = proyecto_url;
+        this.proyecto_descripcion = proyecto_descripcion;
     }
 
-    public Long getId() {
-        return id;
+    public Long getProyecto_id() {
+        return proyecto_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProyecto_id(Long proyecto_id) {
+        this.proyecto_id = proyecto_id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getProyecto_nombre() {
+        return proyecto_nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setProyecto_nombre(String proyecto_nombre) {
+        this.proyecto_nombre = proyecto_nombre;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getProyecto_fecha() {
+        return proyecto_fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setProyecto_fecha(String proyecto_fecha) {
+        this.proyecto_fecha = proyecto_fecha;
     }
 
-    public String getUrl() {
-        return url;
+    public String getProyecto_url() {
+        return proyecto_url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setProyecto_url(String proyecto_url) {
+        this.proyecto_url = proyecto_url;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getProyecto_descripcion() {
+        return proyecto_descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setProyecto_descripcion(String proyecto_descripcion) {
+        this.proyecto_descripcion = proyecto_descripcion;
     }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-        
+    
+    
         
         
 }

@@ -2,7 +2,7 @@
 package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.Experiencia;
-import com.portfolio.backend.model.Persona;
+
 import java.util.List;
 
 /**
@@ -14,7 +14,7 @@ public interface IExperienciaService {
     public List<Experiencia> getExperiencia();
     
     //METODO - dar de alta/agregar una persona nueva
-    public void saveExperiencia (Experiencia exp);
+    public Experiencia saveExperiencia (Experiencia exp);
     
     //METODO - eliminar una persona
     public void deleteExperiencia(Long id);
