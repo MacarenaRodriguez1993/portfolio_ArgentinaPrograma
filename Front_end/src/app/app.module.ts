@@ -15,9 +15,10 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './components/home/home.component';
+import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 
 
 
@@ -36,6 +37,7 @@ import { HomeComponent } from './components/home/home.component';
     ProyectosComponent,
     FooterComponent,
     HomeComponent,
+    IniciarSesionComponent,
 
   ],
   imports: [
@@ -43,7 +45,8 @@ import { HomeComponent } from './components/home/home.component';
     NgCircleProgressModule.forRoot({}),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Iniciar Sesion</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="col-5">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" formControlName="email" placeholder="Ingresar Email" class="form-control" id="exampleInputEmail1">
+          <div *ngIf="Email?.errors && Email?.touched">
+              <p *ngIf="Email?.hasError('required')">
+                El email es requerido.
+              </p>
+              <p *ngIf="Email?.hasError('email')">
+                El formato del email debe ser valido.
+              </p>
+          </div>
+          
+        </div>
+        <div class="col-5">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" formControlName="password" placeholder="Ingresar Contraseña"  class="form-control" id="exampleInputPassword1">
+          <div *ngIf="Password?.errors && Password?.touched">
+            <p *ngIf="Password?.hasError('required')" >
+              La contraseña es requerida.
+            </p>
+            <p>
+              La contraseña debe ser de 8 o mas caracteres
+            </p>
+        </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">ENVIAR</button>
+        <button routerLink="/home" type="submit" class="btn btn-success">volver</button>
+      </form>
+</div>
