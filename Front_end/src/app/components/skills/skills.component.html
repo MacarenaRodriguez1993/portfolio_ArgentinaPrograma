@@ -1,16 +1,12 @@
 <div class="container" >
-    <h1>HARD & SOFT SKILLS</h1>
-    <div *ngFor="let tecno of tecnologia">
-        
-            <div class="card ">
-                <div>
-                    <img src="{{tecno.tecnologia_imagen}}">
-                </div>
-                <h1 class="text">{{tecno.tecnologia_nombre}}</h1>
-                <div class="number">
-                    <h4>{{tecno.tecnologia_nivel}}<span>%</span></h4>
-                </div>   
+    <h1>HARD & SOFT SKILLS  <button class="btn btn-success">Agregar </button></h1>
+    <div class="row">
+        <div *ngFor="let tecno of tecnologia">
+            <div class="card">
+                <img src="{{tecno.tecnologia_imagen}}">
+                <h1>{{tecno.tecnologia_nombre}}</h1>
+                <h4>{{tecno.tecnologia_nivel}}<span>%</span></h4>
             </div>
-        
+        </div>
     </div>
 </div>
