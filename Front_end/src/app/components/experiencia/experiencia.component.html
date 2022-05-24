@@ -1,13 +1,13 @@
 <div class="container " >
-    <h1>EXPERIENCIAS LABORALES <button class="btn btn-success">Agregar</button></h1>
+    <h1>EXPERIENCIAS LABORALES <button *ngIf="isUserLoggedIn" class="btn btn-success">Agregar</button></h1>
     
     <div class="row" *ngFor="let experiencia of experiencia">
         <div class="col-4">
             <img src="../../../assets/imagenes/instagram.jpg" alt="">
         </div>
         <div class="col-1">
-            <button class="btn btn-primary">editar</button>
-            <button class="btn btn-danger">eliminar</button>
+            <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
+            <button *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
         </div>
        <div class="col-7">
             <div class="row">

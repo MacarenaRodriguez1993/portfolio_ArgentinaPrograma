@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { proyecto } from 'src/app/models/proyecto.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
 
 @Component({
@@ -10,10 +11,12 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
 export class ProyectosComponent implements OnInit {
 
   proyect:proyecto[];
-
-  constructor(private proyectoServicio:ProyectoService) { }
+  isUserLoggedIn:boolean = false;
+  constructor(private proyectoServicio:ProyectoService,
+              private autenticacionServicio:AutenticacionService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
     this.obtenerProyectos();
   }
 

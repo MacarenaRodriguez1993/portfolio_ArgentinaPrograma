@@ -5,8 +5,8 @@
             <img src="../../../assets/imagenes/facebook.jpg" alt="">
         </div>
         <div class="col-1">
-            <button class="btn btn-primary">editar</button>
-            <button class="btn btn-danger">eliminar</button>
+            <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
+            <button *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
         </div>
        <div class="col-7">
             <div class="row">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { experiencia } from 'src/app/models/experiencia.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class ExperienciaComponent implements OnInit {
   experiencia:experiencia[];
-
-  constructor(private experienciaServicio:ExperienciaService) { }
+  isUserLoggedIn:boolean=false;
+  constructor(private experienciaServicio:ExperienciaService,
+              private autenticacionServicio:AutenticacionService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
     this.obtenerExperiencia();
   }
   private obtenerExperiencia(){

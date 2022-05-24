@@ -1,5 +1,5 @@
 <div class="container" >
-    <h1>HARD & SOFT SKILLS  <button class="btn btn-success">Agregar </button></h1>
+    <h1>HARD & SOFT SKILLS  <button *ngIf="isUserLoggedIn"class="btn btn-success">Agregar </button></h1>
     <div class="row">
         <div *ngFor="let tecno of tecnologia">
             <div class="card">
