@@ -14,11 +14,13 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './components/home/home.component';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
+import { AcercaDeService } from './servicios/acerca-de.service';
+import { InterceptorService } from './servicios/interceptor.service';
 
 
 
@@ -48,7 +50,11 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AcercaDeService,
+    {
+      provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true
+    },
+  ],
+  bootstrap: [ AppComponent]
 })
 export class AppModule { }

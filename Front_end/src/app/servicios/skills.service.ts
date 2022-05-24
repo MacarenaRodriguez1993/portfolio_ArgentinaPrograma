@@ -9,10 +9,10 @@ import {tecnologia } from '../models/tecnologia.model';
 export class SkillsService {
 
   
-  private baseUrl="http://localhost:8080/tecnologia/";
+  private baseUrl="http://localhost:8080/api/tecnologia";
   constructor(private httpClient:HttpClient) { }
 
   obtenerListaDeTecnologia(): Observable<tecnologia[]>{
-    return this.httpClient.get<tecnologia[]>(`${this.baseUrl}traer`);
+    return this.httpClient.get<tecnologia[]>(`${this.baseUrl}`);
   }
 }

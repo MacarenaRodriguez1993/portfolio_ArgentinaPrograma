@@ -8,12 +8,12 @@ import { experiencia } from '../models/experiencia.model';
 })
 export class ExperienciaService {
 
-  private baseUrl = "http://localhost:8080/experiencia/";
+  private baseUrl = "http://localhost:8080/api/experiencia";
 
   constructor(private httpClient: HttpClient) { }
 
   obtenerListaDeExperiencias(): Observable<experiencia[]>{
-    return this.httpClient.get<experiencia[]>(`${this.baseUrl}traer`);
+    return this.httpClient.get<experiencia[]>(`${this.baseUrl}`);
   }
 
   

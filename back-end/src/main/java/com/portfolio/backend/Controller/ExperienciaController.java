@@ -23,36 +23,35 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Macarena Rodriguez
  */
 @RestController
-
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/experiencia/")
+@RequestMapping("/api/experiencia")
 public class ExperienciaController {
     
     @Autowired
     private ExperienciaService iExperiencia;
     
     //TRAER LISTA DE EXPERIENCIAS
-    @GetMapping("traer")
+    @GetMapping
     public List<Experiencia> getExperiencia(){
        return iExperiencia.getExperiencia();
     }
         
     //CREAR UNA NUEVA EXPERIENCIA
-    @PostMapping("crear")
+    @PostMapping
     public Experiencia crearExperiencia (@RequestBody Experiencia exp){
        return iExperiencia.saveExperiencia(exp);
        
     }
         
     //ELIMINAR UNA EXPERIENCIA
-    @DeleteMapping("eliminar/{experiencia_id}")
+    @DeleteMapping("/{experiencia_id}")
     public String eliminarExperiencia(@PathVariable Long experiencia_id){
         iExperiencia.deleteExperiencia(experiencia_id);
         return "La persona fue eliminada";
     }
         
     //EDITAR LOS DATOS DE UNA EXPERIENCIA LABORAL
-    @PutMapping("/experiencia/editar/{experiencia_id}")
+    @PutMapping("/{experiencia_id}")
     public Experiencia editarExperiencia(@PathVariable Long experiencia_id,
                                          @RequestParam ("nombre") String nuevoNombre,
                                          @RequestParam ("fecha") String nuevaFecha,

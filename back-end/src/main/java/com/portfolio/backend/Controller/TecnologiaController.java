@@ -21,31 +21,31 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Macarena Rodriguez
  */
 @RestController
-@RequestMapping("/tecnologia/")
+@RequestMapping("/api/tecnologia")
 @CrossOrigin(origins = "http://localhost:4200")
 public class TecnologiaController {
     @Autowired
     private ITecnologiaService iTecnologia;
     //TRAER LISTA DE EDUCACION
-    @GetMapping("traer")
+    @GetMapping
     public List<Tecnologia> getTecnologia(){
         return iTecnologia.getTecnologia();
     }
    
     //CREAR UNA NUEVA Tecnologia
-    @PostMapping("crear")
+    @PostMapping
     public String crearTecnologia(@RequestBody Tecnologia tecno){
         iTecnologia.saveTecnologia(tecno);
         return "Se creo una nueva tecnologia";
     }
     //ELIMINAR UN TIPO de tecnologia por id
-    @DeleteMapping("eliminar/{eliminar_id}")
+    @DeleteMapping("/{eliminar_id}")
     public String deleteEducacion(@PathVariable Long eliminar_id){
         iTecnologia.deleteTecnologia(eliminar_id);
         return "Se elimino una tecnologia";
     }
     //EDITAR UNA EDUCACION POR ID
-    @PutMapping("editar/{editar_id}")
+    @PutMapping("/{editar_id}")
     public Tecnologia editarTecnologia(@PathVariable Long editar_id ,
                                      @RequestParam ("tecnologia_nombre")String nuevoNombre,
                                      @RequestParam("tecnologia_nivel") String nuevoNivel,

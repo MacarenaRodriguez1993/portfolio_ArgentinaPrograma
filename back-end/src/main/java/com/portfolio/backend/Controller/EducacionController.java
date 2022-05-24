@@ -23,35 +23,35 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @RestController
-@RequestMapping("/educacion/")
-@CrossOrigin(origins = "http://localhost:4200/")
+@RequestMapping("/api/educacion")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
     
     @Autowired
     private IEducacionService iEducacion;
    
     //TRAER LISTA DE EDUCACION
-    @GetMapping("traer")
+    @GetMapping
     public List<Educacion> getEducacion(){
         return iEducacion.getEducacion();
     }
    
     //CREAR UNA NUEVA EDUCACION
-    @PostMapping("crear")
+    @PostMapping
     public String crearEducacion(@RequestBody Educacion educ){
         iEducacion.saveEducacion(educ);
         return "Se creo una nueva educacion";
     }
     
     //ELIMINAR UN TIPO DE EDUCACION POR ID
-    @DeleteMapping("/educacion/eliminar/{eliminar_id}")
+    @DeleteMapping("/{eliminar_id}")
     public String deleteEducacion(@PathVariable Long eliminar_id){
         iEducacion.deleteEducacion(eliminar_id);
         return "Se elimino una educacion";
     }
     
     //EDITAR UNA EDUCACION POR ID
-    @PutMapping("editar/{editar_id}")
+    @PutMapping("/{editar_id}")
     public Educacion editarEducacion(@PathVariable Long editar_id ,
                                      @RequestParam ("educacion_establecimiento")String nuevoEstablecimiento,
                                      @RequestParam ("educacion_nombre")String nuevoNombre,

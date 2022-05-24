@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Macarena Rodriguez
  */
 @RestController
-@RequestMapping("/proyecto/")
+@RequestMapping("/api/proyecto")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProyectoController {
     @Autowired
     private IProyectoService iProyecto;
     
     //TRAER PROYECTOS
-    @GetMapping("traer")
+    @GetMapping
     public List<Proyecto> getProyecto(){
         return iProyecto.getProyecto();
     }
     
     //CREAR NUEVO PROYECTO
-    @PostMapping("/proyecto/crear")
+    @PostMapping
     public String crearProyecto(@RequestBody Proyecto proyectos){
         iProyecto.saveProyecto(proyectos);
         return "Se agrego nuevo proyecto";

@@ -23,36 +23,36 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Macarena Rodriguez
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping("/personas/")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/personas")
 public class PersonasController {
         
         @Autowired
         private IPersonasService iPersonas;
         
         //TRAER LISTA DE PERSONAS
-        @GetMapping("traer")
+        @GetMapping
         public List<Persona> getPersona(){
             return iPersonas.getPersonas();
             
         }
         
         //CREAR UNA NUEVA PERSONAS
-        @PostMapping("crear")
+        @PostMapping
         public String crearPersona (@RequestBody Persona perso){
             iPersonas.savePersona(perso);
             return "Se agrego una nueva personas";
         }
         
         //ELIMINAR UNA PERSONA
-        @DeleteMapping("/personas/eliminar/{id}")
+        @DeleteMapping("/{id}")
         public String eliminarPersona(@PathVariable Long id){
             iPersonas.deletePersona(id);
             return "La persona fue eliminada";
         }
         
     //EDITAR UNA PERSONA
-    @PutMapping("editar/2")
+    @PutMapping("/{persona_id}")
     public Persona editarPersona(@PathVariable Long persona_id,
                                  @RequestParam ("persona_nombre")String nuevoNombre,
                                  @RequestParam ("persona_apellido") String nuevoApellido,
@@ -71,9 +71,5 @@ public class PersonasController {
         
     }
     
-    @GetMapping("perfil/{id}")
-    public Persona traerPerfil(@PathVariable Long id){
-        return iPersonas.findPersona(id);
-    }
-    
+   
 }

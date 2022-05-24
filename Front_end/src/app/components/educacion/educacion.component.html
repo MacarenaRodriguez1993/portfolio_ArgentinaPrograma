@@ -1,5 +1,5 @@
 <div class="container ">
-    <h1>EDUCACION   <button class="btn btn-success"  id="EduAgregar" type="button">Agregar </button></h1>
+    <h1>EDUCACION   <button *ngIf="isUserLoggedIn" class="btn btn-success"  id="EduAgregar" type="button">Agregar </button></h1>
     <div class="row" *ngFor="let educacion of edu">
         <div class="col-4">
             <img src="../../../assets/imagenes/facebook.jpg" alt="">

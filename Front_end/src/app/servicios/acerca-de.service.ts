@@ -8,12 +8,12 @@ import { persona } from '../models/persona.model';
 })
 export class AcercaDeService {
 
-  private baseUrl="http://localhost:8080/personas/";
+  private baseUrl="http://localhost:8080/api/personas";
 
   constructor(private httpClient:HttpClient) { }
 
   public verpersona(): Observable<persona[]> {
-    return this.httpClient.get<persona[]>(`${this.baseUrl}traer`);
+    return this.httpClient.get<persona[]>(`${this.baseUrl}`);
   }
 
   public editarPersona(id:number,persona:persona): Observable<persona>{

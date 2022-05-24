@@ -7,10 +7,10 @@ import { proyecto } from '../models/proyecto.model';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private baseUrl="http://localhost:8080/proyecto/";
+  private baseUrl="http://localhost:8080/api/proyecto";
   constructor(private httpClient: HttpClient) { }
 
   obtenerListaDeProyectos():Observable<proyecto[]>{
-    return this.httpClient.get<proyecto[]>(`${this.baseUrl}traer`);
+    return this.httpClient.get<proyecto[]>(`${this.baseUrl}`);
   }
 }

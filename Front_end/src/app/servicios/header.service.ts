@@ -8,12 +8,12 @@ import { persona } from '../models/persona.model';
   providedIn: 'root'
 })
 export class HeaderService {
-  URL='http://localhost:8080/personas/';
+  URL="http://localhost:8080/api/personas";
 
   constructor(private http: HttpClient) { }
 
   public getPersona(): Observable<persona> {
-    return this.http.get<persona>(this.URL+'traer/perfil/2');
+    return this.http.get<persona>(this.URL);
   }
 
   public addPersona(): Observable<persona> {

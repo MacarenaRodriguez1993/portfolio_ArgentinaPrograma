@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { educacion } from 'src/app/models/educacion.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 
 @Component({
@@ -10,10 +11,13 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 export class EducacionComponent implements OnInit {
 
     edu:educacion[];
+    isUserLoggedIn:Boolean = false;
   
-  constructor(private educacionServicio:EducacionService) { }
+  constructor(private educacionServicio:EducacionService,
+            private autenticacionServicio:AutenticacionService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
     this.obtenerEducaciones();
   }
   private obtenerEducaciones(){
