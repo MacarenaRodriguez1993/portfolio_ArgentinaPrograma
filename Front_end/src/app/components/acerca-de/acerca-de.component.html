@@ -6,7 +6,7 @@
         </div>
       
         <div class="col-8" id="Descripcion">
-           <a class="icon edit btn btn-success"
+           <a  *ngIf="isUserLoggedIn" class="icon edit btn btn-success"
             alt="Editar" title="Editar"data-original-title="Edit"
             (click)= "editarPerfil(persona.persona_id)">
             editar

@@ -19,7 +19,7 @@
        </div>
        <div class="col-1">
         <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
-        <button *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
+        <button (click)= "eliminarProyecto(proyect.proyecto_id)" *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
     </div>
        <div class="col-5">
            <img  id="Proyecto1" src="../../../assets/imagenes/portfolio.png" alt="">

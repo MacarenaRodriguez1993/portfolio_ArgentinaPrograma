@@ -7,6 +7,9 @@
                 <h1>{{tecno.tecnologia_nombre}}</h1>
                 <h4>{{tecno.tecnologia_nivel}}<span>%</span></h4>
             </div>
+            
+            <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
+            <button (click)= "eliminarTecnologia(tecno.tecnologia_id)" *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
         </div>
     </div>
 </div>

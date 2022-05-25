@@ -9,6 +9,8 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,11 +47,11 @@ public class ExperienciaController {
         
     //ELIMINAR UNA EXPERIENCIA
     @DeleteMapping("/{experiencia_id}")
-    public String eliminarExperiencia(@PathVariable Long experiencia_id){
+    public ResponseEntity<?> deleteExperiencia(@PathVariable Long experiencia_id){
         iExperiencia.deleteExperiencia(experiencia_id);
-        return "La persona fue eliminada";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
-        
+      
     //EDITAR LOS DATOS DE UNA EXPERIENCIA LABORAL
     @PutMapping("/{experiencia_id}")
     public Experiencia editarExperiencia(@PathVariable Long experiencia_id,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-redes-sociales',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RedesSocialesComponent implements OnInit {
 
-  constructor() { }
+  isUserLoggedIn: boolean = false;
+  logout: boolean;
+  constructor(private autenticacionServicio:AutenticacionService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn =this.autenticacionServicio.isUserLoggedIn();
+    this.cerrarsesion();
+  }
+
+  private cerrarsesion(){
+    this.autenticacionServicio.logout();
   }
 
 }

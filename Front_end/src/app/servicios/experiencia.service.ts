@@ -16,5 +16,8 @@ export class ExperienciaService {
     return this.httpClient.get<experiencia[]>(`${this.baseUrl}`);
   }
 
+  eliminarExperienciaPorId(id:number): Observable<experiencia>{
+    return this.httpClient.delete<experiencia>(`${this.baseUrl}/${id}`);
+  }
   
 }

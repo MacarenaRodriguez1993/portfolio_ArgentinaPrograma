@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { persona } from 'src/app/models/persona.model';
 import { AcercaDeService } from 'src/app/servicios/acerca-de.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { HeaderService } from 'src/app/servicios/header.service';
 
 @Component({
@@ -13,22 +14,17 @@ import { HeaderService } from 'src/app/servicios/header.service';
 })
 export class AcercaDeComponent implements OnInit {
   persona:persona[];
-  //public editPersona:persona| undefined;
-  miPortfolio:any;
-  constructor(private acercaDeServicios:AcercaDeService,private router:Router) {  }
+  isUserLoggedIn:boolean=false;
+  constructor(private acercaDeServicios:AcercaDeService,
+              private router:Router,
+              private autenticacionServicio:AutenticacionService) {  }
 
   ngOnInit(): void {
-  this.getpersona();
+    this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
+    this.getpersona();
   }
 
-/*
-  ngOnInit(): void {
-    this.acercaDeServicios.verpersona().subscribe(data=>{
-      console.log("DATOSPERSOJNALES"+JSON.stringify(data));
-      this.miPortfolio=data[0];
-    });
-  }
-  */
+
   private getpersona(){
     this.acercaDeServicios.verpersona().subscribe(dato=>{
       this.persona=dato;

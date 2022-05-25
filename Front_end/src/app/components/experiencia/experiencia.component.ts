@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { experiencia } from 'src/app/models/experiencia.model';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
@@ -12,7 +13,8 @@ export class ExperienciaComponent implements OnInit {
   experiencia:experiencia[];
   isUserLoggedIn:boolean=false;
   constructor(private experienciaServicio:ExperienciaService,
-              private autenticacionServicio:AutenticacionService) { }
+              private autenticacionServicio:AutenticacionService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
@@ -22,6 +24,12 @@ export class ExperienciaComponent implements OnInit {
     this.experienciaServicio.obtenerListaDeExperiencias().subscribe(dato => {
       this.experiencia=dato;
     });
+  }
+
+  eliminarExperiencia(id:number){
+    this.experienciaServicio.eliminarExperienciaPorId(id).subscribe(dato => {
+      this.obtenerExperiencia();
+    })
   }
  
 }

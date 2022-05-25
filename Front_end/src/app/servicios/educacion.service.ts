@@ -15,4 +15,8 @@ export class EducacionService {
   obtenerListaDeEducacion(): Observable<educacion[]>{
     return this.httpClient.get<educacion[]>(`${this.baseUrl}`);
   }
+
+  eliminarEducacionPorId(educacion_id:number):Observable<educacion>{
+    return this.httpClient.delete<educacion>(`${this.baseUrl}/${educacion_id}`);
+  }
 }

@@ -27,4 +27,10 @@ export class SkillsComponent implements OnInit {
     })
   }
 
+  eliminarTecnologia(id:number){
+    this.skillServicios.eliminarTecnologiaPorId(id).subscribe(dato => {
+      this.obtenerTecnologias();
+    })
+  }
+
 }

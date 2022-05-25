@@ -6,6 +6,8 @@ import com.portfolio.backend.service.IEducacionService;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,9 +47,9 @@ public class EducacionController {
     
     //ELIMINAR UN TIPO DE EDUCACION POR ID
     @DeleteMapping("/{eliminar_id}")
-    public String deleteEducacion(@PathVariable Long eliminar_id){
+    public ResponseEntity<?> deleteEducacion(@PathVariable Long eliminar_id){
         iEducacion.deleteEducacion(eliminar_id);
-        return "Se elimino una educacion";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     
     //EDITAR UNA EDUCACION POR ID

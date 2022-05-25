@@ -15,4 +15,8 @@ export class SkillsService {
   obtenerListaDeTecnologia(): Observable<tecnologia[]>{
     return this.httpClient.get<tecnologia[]>(`${this.baseUrl}`);
   }
+
+  eliminarTecnologiaPorId(id:number):Observable<tecnologia>{
+    return this.httpClient.delete<tecnologia>(`${this.baseUrl}/${id}`);
+  }
 }

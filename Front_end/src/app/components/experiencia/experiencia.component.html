@@ -7,7 +7,7 @@
         </div>
         <div class="col-1">
             <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
-            <button *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
+            <button (click)= "eliminarExperiencia(experiencia.experiencia_id)" *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
         </div>
        <div class="col-7">
             <div class="row">

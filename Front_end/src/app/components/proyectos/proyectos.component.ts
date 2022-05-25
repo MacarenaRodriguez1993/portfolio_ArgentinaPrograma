@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { proyecto } from 'src/app/models/proyecto.model';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
@@ -13,7 +14,8 @@ export class ProyectosComponent implements OnInit {
   proyect:proyecto[];
   isUserLoggedIn:boolean = false;
   constructor(private proyectoServicio:ProyectoService,
-              private autenticacionServicio:AutenticacionService) { }
+              private autenticacionServicio:AutenticacionService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
@@ -23,6 +25,12 @@ export class ProyectosComponent implements OnInit {
   obtenerProyectos(){
     this.proyectoServicio.obtenerListaDeProyectos().subscribe(dato=>{
       this.proyect=dato;
+    })
+  }
+
+  eliminarProyecto(id:number){
+    this.proyectoServicio.eliminarProyectoPorId(id).subscribe(dato=>{
+      this.obtenerProyectos();
     })
   }
 }
