@@ -22,6 +22,7 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { AcercaDeService } from './servicios/acerca-de.service';
 import { InterceptorService } from './servicios/interceptor.service';
 import { EditarProyectoComponent } from './editar/editar-proyecto/editar-proyecto.component';
+import { AgregarProyectoComponent } from './agregar/agregar-proyecto/agregar-proyecto.component';
 
 
 
@@ -42,6 +43,7 @@ import { EditarProyectoComponent } from './editar/editar-proyecto/editar-proyect
     HomeComponent,
     IniciarSesionComponent,
     EditarProyectoComponent,
+    AgregarProyectoComponent,
 
   ],
   imports: [

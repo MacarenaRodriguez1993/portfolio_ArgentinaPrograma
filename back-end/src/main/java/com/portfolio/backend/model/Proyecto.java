@@ -15,19 +15,15 @@ import javax.validation.constraints.NotNull;
  */
 
 @Entity
-public class Proyecto implements Serializable {
+public class Proyecto{
    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long proyecto_id;
-    @NotNull
+ 
     private String proyecto_nombre;
-    @NotNull    
     private String proyecto_fecha;
-    @NotNull
     private String proyecto_url;
-        
-    @NotNull
     private String proyecto_descripcion;
 
     public Proyecto() {

@@ -28,7 +28,11 @@ export class ProyectoService {
   //EDITAR PROYECTO
   editarProyectoPorId(id:number,proyecto:proyecto):Observable<proyecto>{
     return this.httpClient.put<proyecto>(`${this.baseUrl}/${id}`,proyecto);
-    
-    
+  }
+
+  //AGREGAR UN NUEVO PROYECTO
+  agregarNuevoProyeto(proyecto:proyecto): Observable<proyecto>{
+    return this.httpClient.post<proyecto>(`${this.baseUrl}/crear`,proyecto);
+
   }
 }

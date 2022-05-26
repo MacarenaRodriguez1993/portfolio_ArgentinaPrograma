@@ -1,5 +1,5 @@
 <div class="container ">
-    <h1>PROYECTOS<button *ngIf="isUserLoggedIn" class="btn btn-success">Agregar </button></h1>
+    <h1>PROYECTOS<button (click)= "agregarNuevoProyecto()" class="btn btn-success">Agregar </button></h1>
     <div class="row" *ngFor="let proyect of proyect">
        <div class="col-6">
             <div class="row">

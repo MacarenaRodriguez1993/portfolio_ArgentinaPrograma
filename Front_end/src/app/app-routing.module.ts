@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 import { EditarProyectoComponent } from './editar/editar-proyecto/editar-proyecto.component';
+import { AgregarProyectoComponent } from './agregar/agregar-proyecto/agregar-proyecto.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'iniciar-sesion', component: IniciarSesionComponent},
   {path:'editar-proyecto/:id',component:EditarProyectoComponent},
-  
+  {path:'agregar-proyecto', component: AgregarProyectoComponent},
 ];
 
 @NgModule({

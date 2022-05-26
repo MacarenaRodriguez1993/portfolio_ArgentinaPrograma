@@ -36,4 +36,8 @@ export class ProyectosComponent implements OnInit {
   editarProyecto(id:number){
     this.router.navigate(['/editar-proyecto',id]);
   }
+
+  agregarNuevoProyecto(){
+    this.router.navigate(['/agregar-proyecto'])
+  }
 }

@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Macarena Rodriguez
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("/api/proyecto")
-@CrossOrigin(origins = "http://localhost:4200")
 public class ProyectoController {
     @Autowired
     private IProyectoService iProyecto;
@@ -37,10 +37,16 @@ public class ProyectoController {
     
     //CREAR NUEVO PROYECTO
     @PostMapping("/crear")
-    public String crearProyecto(@RequestBody Proyecto proyectos){
-        iProyecto.saveProyecto(proyectos);
-        return "Se agrego nuevo proyecto";
+    public Proyecto crearProyecto(@RequestBody Proyecto proyecto){
+        return  iProyecto.saveProyecto(proyecto);    
     }
+    //OBTENER PROYECTO POR ID 
+    @GetMapping("{id}")
+    public Proyecto obtenerProyectoPorId(@PathVariable Long id){
+        Proyecto proyecto= iProyecto.findProyecto(id);
+        return proyecto;
+    }
+    
      @PutMapping("/{id}")
     public Proyecto editarProyecto(@PathVariable Long id,@RequestBody Proyecto detalleProyecto){
         Proyecto proyect=iProyecto.findProyecto(id);
@@ -58,12 +64,7 @@ public class ProyectoController {
         iProyecto.deleteProyecto(proyecto_id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    //OBTENER PROYECTO POR ID 
-    @GetMapping("{id}")
-    public Proyecto obtenerProyectoPorId(@PathVariable Long id){
-        Proyecto proyecto= iProyecto.findProyecto(id);
-        return proyecto;
-    }
+    
     
    
 }
