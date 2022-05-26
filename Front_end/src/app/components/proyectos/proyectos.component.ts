@@ -33,4 +33,7 @@ export class ProyectosComponent implements OnInit {
       this.obtenerProyectos();
     })
   }
+  editarProyecto(id:number){
+    this.router.navigate(['/editar-proyecto',id]);
+  }
 }

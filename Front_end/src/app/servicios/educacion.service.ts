@@ -19,4 +19,10 @@ export class EducacionService {
   eliminarEducacionPorId(educacion_id:number):Observable<educacion>{
     return this.httpClient.delete<educacion>(`${this.baseUrl}/${educacion_id}`);
   }
+
+  agregarNuevaEducacion(educacion:educacion): Observable<educacion>{
+    return this.httpClient.post<educacion>(`${this.baseUrl}/crear`,educacion);
+    
+  }
+ 
 }

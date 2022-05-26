@@ -35,7 +35,7 @@ public class TecnologiaController {
     }
    
     //CREAR UNA NUEVA Tecnologia
-    @PostMapping
+    @PostMapping("/crear")
     public String crearTecnologia(@RequestBody Tecnologia tecno){
         iTecnologia.saveTecnologia(tecno);
         return "Se creo una nueva tecnologia";

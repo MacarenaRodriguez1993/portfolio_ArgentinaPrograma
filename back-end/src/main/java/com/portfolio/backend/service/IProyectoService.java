@@ -14,7 +14,7 @@ public interface IProyectoService {
     public List<Proyecto> getProyecto();
     
     //METODO - dar de alta/agregar un proyecto nuevo
-    public void saveProyecto (Proyecto proyecto);
+    public Proyecto saveProyecto (Proyecto proyecto);
     
     //METODO - eliminar un proyecto
     public void deleteProyecto (Long proyecto_id);

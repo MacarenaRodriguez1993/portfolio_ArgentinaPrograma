@@ -18,7 +18,7 @@
             </div>
        </div>
        <div class="col-1">
-        <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
+        <button  class="btn btn-primary"(click)= "editarProyecto(proyect.proyecto_id)">Editar</button>
         <button (click)= "eliminarProyecto(proyect.proyecto_id)" *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
     </div>
        <div class="col-5">

@@ -55,13 +55,13 @@ public class ExperienciaController {
     //EDITAR LOS DATOS DE UNA EXPERIENCIA LABORAL
     @PutMapping("/{experiencia_id}")
     public Experiencia editarExperiencia(@PathVariable Long experiencia_id,
-                                         @RequestParam ("nombre") String nuevoNombre,
-                                         @RequestParam ("fecha") String nuevaFecha,
-                                         @RequestParam("descipcion") String nuevaDescripcion){
+                                         @RequestParam ("experiencia_nombre") String nuevoNombre,
+                                         @RequestParam ("experiencia_fecha") String nuevaFecha,
+                                         @RequestParam("experiencia_descripcion") String nuevaDescripcion){
         Experiencia experiencia =iExperiencia.findExperiencia(experiencia_id);
             
         experiencia.setExperiencia_nombre(nuevoNombre);
-        experiencia.setExperiencia_fecha(nuevaDescripcion);
+        experiencia.setExperiencia_fecha(nuevaFecha);
         experiencia.setExperiencia_descripcion(nuevaDescripcion);
             
         iExperiencia.saveExperiencia(experiencia);

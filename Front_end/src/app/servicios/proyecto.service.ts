@@ -17,4 +17,18 @@ export class ProyectoService {
   eliminarProyectoPorId(id:number):Observable<proyecto>{
     return this.httpClient.delete<proyecto>(`${this.baseUrl}/${id}`);
   }
+
+  //OBTENER UN PROYECTO POR MEDIO DE SU ID
+  obtenerProyectoPorId(id:number):Observable<proyecto>{
+    return this.httpClient.get<proyecto>(`${this.baseUrl}/${id}`);
+
+
+  }
+
+  //EDITAR PROYECTO
+  editarProyectoPorId(id:number,proyecto:proyecto):Observable<proyecto>{
+    return this.httpClient.put<proyecto>(`${this.baseUrl}/${id}`,proyecto);
+    
+    
+  }
 }

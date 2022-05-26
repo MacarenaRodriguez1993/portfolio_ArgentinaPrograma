@@ -1,0 +1,47 @@
+<div class="container">
+    <h2 class="text-center">Agregar nueva experiencia</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre del establecimiento</label> 
+            <input type="text"
+                name="tituloEducacion"
+                class="form-control"
+                id="tituloEducacion"
+                placeholder="Titulo"
+                [(ngModel)]="educacion.educacion_establecimiento"
+                >
+        </div>
+        <div class="form-group">
+            <label for="nombreEducacion">Nombre o Titulo</label> 
+            <input type="text"
+                [(ngModel)]="educacion.educacion_nombre"
+                name="fechaEducacion"
+                class="form-control"
+                id="fechaEducacion"
+                placeholder="Nombre o titulo"
+                >
+        </div>
+        <div class="form-group">
+            <label for="fechaEducacion">Fecha de finalizacion</label> 
+            <input type="text"
+                [(ngModel)]="educacion.educacion_fecha"
+                name="fechaEducacion"
+                class="form-control"
+                id="fechaEducacion"
+                placeholder="Fecha"
+                >
+        </div>
+
+        <div class="form-group">
+            <label for="descripcionEducacion">Descripcion</label> 
+            <input type="text"
+                [(ngModel)]="educacion.educacion_descripcion"
+                name="descripcionEducacion"
+                class="form-control"
+                id="descripcionEducacion"
+                placeholder="Descripcion"
+                >
+        </div>
+        <button class="btn btn-success">guardar</button>
+    </form>
+</div>

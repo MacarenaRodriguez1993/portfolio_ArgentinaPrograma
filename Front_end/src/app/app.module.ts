@@ -21,6 +21,7 @@ import { HomeComponent } from './components/home/home.component';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 import { AcercaDeService } from './servicios/acerca-de.service';
 import { InterceptorService } from './servicios/interceptor.service';
+import { EditarProyectoComponent } from './editar/editar-proyecto/editar-proyecto.component';
 
 
 
@@ -40,6 +41,7 @@ import { InterceptorService } from './servicios/interceptor.service';
     FooterComponent,
     HomeComponent,
     IniciarSesionComponent,
+    EditarProyectoComponent,
 
   ],
   imports: [
