@@ -1,5 +1,5 @@
 <div class="container" >
-    <h1>HARD & SOFT SKILLS  <button *ngIf="isUserLoggedIn"class="btn btn-success">Agregar </button></h1>
+    <h1>HARD & SOFT SKILLS  <button *ngIf="isUserLoggedIn" id="botonAgregar"><i class="fa-solid fa-square-plus"></i></button></h1>
     <div class="row">
         <div *ngFor="let tecno of tecnologia">
             <div class="card">
@@ -7,9 +7,8 @@
                 <h1>{{tecno.tecnologia_nombre}}</h1>
                 <h4>{{tecno.tecnologia_nivel}}<span>%</span></h4>
             </div>
-            
-            <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
-            <button (click)= "eliminarTecnologia(tecno.tecnologia_id)" *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
+            <button id="botonEditar"*ngIf="isUserLoggedIn" ><i class="fa-regular fa-pen-to-square"></i></button>
+            <button id="botonEliminar" *ngIf="isUserLoggedIn" ><i class="fa-solid fa-trash-can"></i></button>
         </div>
     </div>
 </div>

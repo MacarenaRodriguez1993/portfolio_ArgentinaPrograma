@@ -1,10 +1,11 @@
 <div class="container ">
-    <h1>PROYECTOS<button (click)= "agregarNuevoProyecto()" class="btn btn-success">Agregar </button></h1>
-    <div class="row" *ngFor="let proyect of proyect">
+    <h1>PROYECTOS<button id="botonAgregar" (click)= "agregarNuevoProyecto()"><i class="fa-solid fa-square-plus"></i></button></h1>
+    <div class="row" id="card" *ngFor="let proyect of proyect">
+        
        <div class="col-6">
             <div class="row">
                 <div class="col-8">
-                    <h2>{{proyect.proyecto_nombre}}</h2>
+                    <h4>{{proyect.proyecto_nombre}}</h4>
                 </div>
                 <div class="col-4">
                     <h4>{{proyect.proyecto_fecha}}</h4>
@@ -17,12 +18,13 @@
                 </div>
             </div>
        </div>
-       <div class="col-1">
-        <button  class="btn btn-primary"(click)= "editarProyecto(proyect.proyecto_id)">Editar</button>
-        <button (click)= "eliminarProyecto(proyect.proyecto_id)" *ngIf="isUserLoggedIn" class="btn btn-danger">eliminar</button>
-    </div>
+      
        <div class="col-5">
            <img  id="Proyecto1" src="../../../assets/imagenes/portfolio.png" alt="">
        </div>
+       <div class="col-1">
+            <button id="botonEditar"(click)= "editarProyecto(proyect.proyecto_id)"  ><i class="fa-regular fa-pen-to-square"></i></button>
+            <button id="botonEliminar"(click)= "eliminarProyecto(proyect.proyecto_id)"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
     </div>
 </div>

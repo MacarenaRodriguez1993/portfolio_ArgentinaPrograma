@@ -1,14 +1,7 @@
 <div class="container ">
-    <h1>EDUCACION   <button *ngIf="isUserLoggedIn" class="btn btn-success"  id="EduAgregar" type="button">Agregar </button></h1>
-    <div class="row" *ngFor="let educacion of edu">
-        <div class="col-4">
-            <img src="../../../assets/imagenes/facebook.jpg" alt="">
-        </div>
-        <div class="col-1">
-            <button *ngIf="isUserLoggedIn" class="btn btn-primary">editar</button>
-            <button (click)= "eliminarEducacion(educacion.educacion_id)" *ngIf="isUserLoggedIn"  class="btn btn-danger">eliminar</button>
-        </div>
-       <div class="col-7">
+    <h1>EDUCACION   <button  id="botonAgregar" ><i class="fa-solid fa-square-plus"></i></button></h1>
+    <div class="row" id="card" *ngFor="let educacion of edu">
+       <div class="col-6">
             <div class="row">
                 <div class="col-9">
                     <h2>{{educacion.educacion_establecimiento}} - {{educacion.educacion_nombre}}</h2>
@@ -23,5 +16,13 @@
                 </div>
             </div>
        </div>
+       <div class="col-5">
+            <img src="../../../assets/imagenes/facebook.jpg" alt="">
+        </div>
+
+       <div class="col-1">
+        <button id="botonEditar"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button id="botonEliminar"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
     </div>
 </div>

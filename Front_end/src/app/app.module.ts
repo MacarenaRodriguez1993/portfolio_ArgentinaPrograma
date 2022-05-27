@@ -44,6 +44,7 @@ import { AgregarProyectoComponent } from './agregar/agregar-proyecto/agregar-pro
     IniciarSesionComponent,
     EditarProyectoComponent,
     AgregarProyectoComponent,
+    
 
   ],
   imports: [

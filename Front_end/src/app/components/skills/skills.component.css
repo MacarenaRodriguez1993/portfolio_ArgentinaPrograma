@@ -4,8 +4,10 @@
 }
 h1{
     margin-top: 20px;
+    margin-left: 25px;
+    margin-right: 30px;
     display: flex;
-    justify-content:center;
+    justify-content:space-between;
 }
 .card{
     position: relative;
@@ -51,4 +53,21 @@ img{
 h1 button{
    
     margin-left: 30px;
+}
+#botonEditar {
+    border-radius: 5px;
+    border: none;
+    background-color: #c3b8c7;
+    margin :3px;
+}
+#botonEliminar {
+    border-radius: 5px;
+    border: none;
+    background-color: #c3b8c7;
+    margin :3px;
+}
+#botonAgregar{
+    background-color: #7dda0c;  
+    border: none;
+    border-radius:10px;
 }
