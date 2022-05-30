@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Macarena Rodriguez
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-argentinaprogr-7832c.web.app")
 @RequestMapping("/api/experiencia")
 public class ExperienciaController {
     
@@ -42,7 +42,25 @@ public class ExperienciaController {
     @PostMapping
     public Experiencia crearExperiencia (@RequestBody Experiencia exp){
        return iExperiencia.saveExperiencia(exp);
-       
+    }
+    
+    //OBTENER EXPERIENCIA POR ID
+    @GetMapping("/{id}")
+    public Experiencia obtenerExperienciaPorId(@PathVariable Long id){
+        Experiencia experiencia =iExperiencia.findExperiencia(id);
+        return experiencia;
+    }
+    
+     //EDITAR LOS DATOS DE UNA EXPERIENCIA LABORAL
+    @PutMapping("/{id}")
+    public Experiencia editarExperiencia(@PathVariable Long id,@RequestBody Experiencia nuevoExperiencia){
+        Experiencia exp=iExperiencia.findExperiencia(id);
+        exp.setExperiencia_nombre(nuevoExperiencia.getExperiencia_nombre());
+        exp.setExperiencia_fecha(nuevoExperiencia.getExperiencia_fecha());
+        exp.setExperiencia_descripcion(nuevoExperiencia.getExperiencia_descripcion());
+        
+        Experiencia experiencia = iExperiencia.saveExperiencia(exp);
+        return experiencia;
     }
         
     //ELIMINAR UNA EXPERIENCIA
@@ -52,21 +70,7 @@ public class ExperienciaController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
       
-    //EDITAR LOS DATOS DE UNA EXPERIENCIA LABORAL
-    @PutMapping("/{experiencia_id}")
-    public Experiencia editarExperiencia(@PathVariable Long experiencia_id,
-                                         @RequestParam ("experiencia_nombre") String nuevoNombre,
-                                         @RequestParam ("experiencia_fecha") String nuevaFecha,
-                                         @RequestParam("experiencia_descripcion") String nuevaDescripcion){
-        Experiencia experiencia =iExperiencia.findExperiencia(experiencia_id);
-            
-        experiencia.setExperiencia_nombre(nuevoNombre);
-        experiencia.setExperiencia_fecha(nuevaFecha);
-        experiencia.setExperiencia_descripcion(nuevaDescripcion);
-            
-        iExperiencia.saveExperiencia(experiencia);
-        return experiencia;
-        }
+   
     
    
 }

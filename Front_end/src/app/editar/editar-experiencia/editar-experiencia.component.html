@@ -1,0 +1,27 @@
+<div class="col-md-6 offset-md-3">
+    <h2>Editar experiencia laboral</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>NOMBRE</label>
+            <input type="text" class="form-control"
+                id="nombre"
+                [(ngModel)]="experiencia.experiencia_nombre"
+                name="nombre">
+        </div>
+        <div class="form-group">
+            <label>fecha</label>
+            <input type="text" class="form-control"
+                id="apellido"
+                [(ngModel)]="experiencia.experiencia_fecha"
+                name="apellido">
+        </div>
+        <div class="form-group">
+            <label>descripcion</label>
+            <input type="text" class="form-control"
+                id="mail"
+                [(ngModel)]="experiencia.experiencia_descripcion"
+                name="mail">
+        </div>
+        <button class="btn btn-success" >Guardar</button>
+    </form>
+</div>

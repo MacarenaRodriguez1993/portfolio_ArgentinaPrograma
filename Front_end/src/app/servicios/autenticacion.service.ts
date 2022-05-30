@@ -6,7 +6,7 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url="http://localhost:8080/api/iniciarsesion";
+  url="https://portfolio-argentinaprograma.herokuapp.com/api/iniciarsesion";
   currentUserSubject: BehaviorSubject<any>;
   
 
@@ -17,7 +17,6 @@ export class AutenticacionService {
 
   }
   IniciarSesion(credenciales:any): Observable<any> {
-
       return this.http.post(this.url,credenciales).pipe(map(data=>{
         sessionStorage.setItem('currentUser',JSON.stringify(data));
         this.currentUserSubject.next(data);
@@ -25,12 +24,13 @@ export class AutenticacionService {
       }))
   }
 
-  public logout(){
-    sessionStorage.removeItem('currentUser');
-  }
+  
 
   public isUserLoggedIn(): boolean {
-    return sessionStorage.getItem('currentUser') !==null;
+    return sessionStorage.getItem('currentUser')!==null;
+  }
+  public logout(){
+    sessionStorage.removeItem('currentUser');
   }
 
   get UsuarioAutenticado(){

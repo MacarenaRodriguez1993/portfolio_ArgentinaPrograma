@@ -13,7 +13,7 @@ public interface IPersonasService {
     //METODO - traer/ver las personas
     public List<Persona> getPersonas();
     //METODO - dar de alta/agregar una persona nueva
-    public void savePersona (Persona person);
+    public Persona savePersona (Persona person);
     
     //METODO - eliminar una persona
     public void deletePersona (Long id);

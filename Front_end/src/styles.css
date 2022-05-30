@@ -6,9 +6,19 @@ body{
     margin:0;
 }
 #card{
-    border: 2px solid #7dda0c;
-    border-radius: 25px;
-    margin:7px;
-    box-shadow: 0 15px 35px #8E2DE2;
-    
+    background-color: #400ca0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+    margin-top: 23px;
+    margin: 10px;
+}
+
+#card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }

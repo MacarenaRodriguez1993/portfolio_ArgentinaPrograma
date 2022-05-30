@@ -8,16 +8,23 @@ import { persona } from '../models/persona.model';
 })
 export class AcercaDeService {
 
-  private baseUrl="http://localhost:8080/api/personas";
+  private baseUrl="https://portfolio-argentinaprograma.herokuapp.com";
 
   constructor(private httpClient:HttpClient) { }
 
-  public verpersona(): Observable<persona[]> {
-    return this.httpClient.get<persona[]>(`${this.baseUrl}`);
-  }
 
-  public editarPersona(id:number,persona:persona): Observable<persona>{
-    return this.httpClient.put<persona>(`${this.baseUrl}editar/${id}`,persona);
+  //Obtener persona
+  verpersona(): Observable<persona[]> {
+    return this.httpClient.get<persona[]>(`${this.baseUrl}/api/persona`);
+    }
+  //obtener Perfil por id
+  obtenerPersonaPorId(id:number): Observable<persona>{
+    return this.httpClient.get<persona>(`${this.baseUrl}/api/persona/${id}`);
+
+  }
+  //editar una persona
+  editarPersona(id:number,persona:persona): Observable<persona>{
+    return this.httpClient.put<persona>(`${this.baseUrl}/api/persona/${id}`,persona);
   }
   
 }

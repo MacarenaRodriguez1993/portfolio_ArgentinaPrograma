@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Macarena Rodriguez
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/personas")
+@CrossOrigin(origins = "https://portfolio-argentinaprogr-7832c.web.app")
+@RequestMapping("/api/persona")
 public class PersonasController {
         
         @Autowired
@@ -39,10 +39,15 @@ public class PersonasController {
         
         //CREAR UNA NUEVA PERSONAS
         @PostMapping
-        public String crearPersona (@RequestBody Persona perso){
-            iPersonas.savePersona(perso);
-            return "Se agrego una nueva personas";
+        public Persona crearPersona (@RequestBody Persona perso){
+            return iPersonas.savePersona(perso);
+           
         }
+         @GetMapping("/{id}")
+        public Persona obtenerPersonaPorId(@PathVariable Long id){
+            Persona perso =iPersonas.findPersona(id);
+            return perso;
+    }
         
         //ELIMINAR UNA PERSONA
         @DeleteMapping("/{id}")
@@ -53,21 +58,18 @@ public class PersonasController {
         
     //EDITAR UNA PERSONA
     @PutMapping("/{persona_id}")
-    public Persona editarPersona(@PathVariable Long persona_id,
-                                 @RequestParam ("persona_nombre")String nuevoNombre,
-                                 @RequestParam ("persona_apellido") String nuevoApellido,
-                                 @RequestParam ("persona_mail")String nuevoMail,
-                                 @RequestParam ("persona_descripcion")String nuevaDescripcion,
-                                 @RequestParam ("persona_fotoperfil")String nuevaFoto){
+    public Persona editarPersona(@PathVariable Long persona_id,@RequestBody Persona persona){
         Persona perso =iPersonas.findPersona(persona_id);
-        perso.setPersona_nombre(nuevoNombre);
-        perso.setPersona_apellido(nuevoApellido);
-        perso.setPersona_mail(nuevoMail);
-        perso.setPersona_descripcion(nuevaDescripcion);
-        perso.setPersona_fotoperfil(nuevaFoto);
         
-        iPersonas.savePersona(perso);
-        return perso;
+        perso.setPersona_nombre(persona.getPersona_nombre());
+        perso.setPersona_apellido(persona.getPersona_apellido());
+        perso.setPersona_titulo(persona.getPersona_titulo());
+        perso.setPersona_descripcion(persona.getPersona_descripcion());
+        perso.setPersona_fotoperfil(persona.getPersona_fotoperfil());
+        
+        Persona pEditada=iPersonas.savePersona(perso);
+        
+        return pEditada;
         
     }
     

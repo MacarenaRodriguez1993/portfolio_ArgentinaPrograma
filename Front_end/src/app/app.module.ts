@@ -23,6 +23,13 @@ import { AcercaDeService } from './servicios/acerca-de.service';
 import { InterceptorService } from './servicios/interceptor.service';
 import { EditarProyectoComponent } from './editar/editar-proyecto/editar-proyecto.component';
 import { AgregarProyectoComponent } from './agregar/agregar-proyecto/agregar-proyecto.component';
+import { AgregarExperienciaComponent } from './agregar/agregar-experiencia/agregar-experiencia.component';
+import { EditarExperienciaComponent } from './editar/editar-experiencia/editar-experiencia.component';
+import { EditarEducacionComponent } from './editar/editar-educacion/editar-educacion.component';
+import { AgregarTecnologiaComponent } from './agregar/agregar-tecnologia/agregar-tecnologia.component';
+import { EditarTecnologiaComponent } from './editar/editar-tecnologia/editar-tecnologia.component';
+import { AgregarEducacionComponent } from './agregar/agregar-educacion/agregar-educacion.component';
+import { EditarPerfilComponent } from './editar/editar-perfil/editar-perfil.component';
 
 
 
@@ -44,6 +51,13 @@ import { AgregarProyectoComponent } from './agregar/agregar-proyecto/agregar-pro
     IniciarSesionComponent,
     EditarProyectoComponent,
     AgregarProyectoComponent,
+    AgregarExperienciaComponent,
+    EditarExperienciaComponent,
+    EditarEducacionComponent,
+    AgregarTecnologiaComponent,
+    EditarTecnologiaComponent,
+    AgregarEducacionComponent,
+    EditarPerfilComponent,
     
 
   ],

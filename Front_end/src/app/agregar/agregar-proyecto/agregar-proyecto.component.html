@@ -1,33 +1,33 @@
 <div class="col-md-6 offset-md-3">
-    <h2>EDICION DE EMPLEADO</h2>
+    <h2>Edicion de proyecto </h2>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label>NOMBRE</label>
+            <label>Nombre del proyecto</label>
             <input type="text" class="form-control"
                 id="nombre"
                 [(ngModel)]="proyecto.proyecto_nombre"
                 name="nombre">
         </div>
         <div class="form-group">
-            <label>fecha</label>
+            <label>fecha de realizacion</label>
             <input type="text" class="form-control"
-                id="apellido"
+                id="fecha"
                 [(ngModel)]="proyecto.proyecto_fecha"
-                name="apellido">
+                name="fecha">
         </div>
         <div class="form-group">
             <label>Url - link</label>
             <input type="text" class="form-control"
                 id="url"
                 [(ngModel)]="proyecto.proyecto_url"
-                name="apellido">
+                name="url">
         </div>
         <div class="form-group">
-            <label>descripcion</label>
+            <label>Descripcion del proyecto</label>
             <input type="text" class="form-control"
-                id="mail"
+                id="descripcion"
                 [(ngModel)]="proyecto.proyecto_descripcion"
-                name="mail">
+                name="descripcion">
         </div>
         <button class="btn btn-success" >Guardar</button>
     </form>

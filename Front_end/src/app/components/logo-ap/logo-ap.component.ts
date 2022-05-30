@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-logo-ap',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logo-ap.component.css']
 })
 export class LogoApComponent implements OnInit {
-
-  constructor() { }
+  isUserLoggedIn: boolean = false;
+  logout: boolean;
+  constructor(private autenticacionServicio:AutenticacionService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn =this.autenticacionServicio.isUserLoggedIn();
+    this.cerrarsesion();
   }
 
+  private cerrarsesion(){
+    this.autenticacionServicio.logout();
+  }
 }

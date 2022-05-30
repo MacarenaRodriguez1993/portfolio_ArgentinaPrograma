@@ -16,7 +16,7 @@ public interface IEducacionService {
     public List<Educacion> getEducacion();
     
     //Metodo - dar de alta o cargar una educacion nueva
-    public void saveEducacion(Educacion educ);
+    public Educacion saveEducacion(Educacion educ);
     
     //Metodo- eliminar una educacion por id
     public void deleteEducacion(Long id);

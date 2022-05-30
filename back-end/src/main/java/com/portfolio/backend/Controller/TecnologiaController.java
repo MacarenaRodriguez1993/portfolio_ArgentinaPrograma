@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @RestController
 @RequestMapping("/api/tecnologia")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-argentinaprogr-7832c.web.app")
 public class TecnologiaController {
     @Autowired
     private ITecnologiaService iTecnologia;
@@ -35,11 +35,16 @@ public class TecnologiaController {
     }
    
     //CREAR UNA NUEVA Tecnologia
-    @PostMapping("/crear")
-    public String crearTecnologia(@RequestBody Tecnologia tecno){
-        iTecnologia.saveTecnologia(tecno);
-        return "Se creo una nueva tecnologia";
+    @PostMapping
+    public Tecnologia crearTecnologia(@RequestBody Tecnologia tecno){
+        return  iTecnologia.saveTecnologia(tecno);   
     }
+    @GetMapping("/{id}")
+    public Tecnologia obtenerProyectoPorId(@PathVariable Long id){
+        Tecnologia tecno =iTecnologia.findTecnologia(id);
+        return tecno;
+    }
+    
     //ELIMINAR UN TIPO de tecnologia por id
     @DeleteMapping("/{eliminar_id}")
     public ResponseEntity<?> deleteTecnologia(@PathVariable Long eliminar_id){
@@ -48,17 +53,14 @@ public class TecnologiaController {
     }
     //EDITAR UNA EDUCACION POR ID
     @PutMapping("/{editar_id}")
-    public Tecnologia editarTecnologia(@PathVariable Long editar_id ,
-                                     @RequestParam ("tecnologia_nombre")String nuevoNombre,
-                                     @RequestParam("tecnologia_nivel") String nuevoNivel,
-                                     @RequestParam("tecnologia_imagen")String nuevaImagen){
+    public Tecnologia editarTecnologia(@PathVariable Long editar_id ,@RequestBody Tecnologia skill){
        Tecnologia tecno =iTecnologia.findTecnologia(editar_id);
         
-        tecno.setTecnologia_nombre(nuevoNombre);
-        tecno.setTecnologia_nivel(nuevoNivel);
-        tecno.setTecnologia_imagen(nuevaImagen);
+        tecno.setTecnologia_nombre(skill.getTecnologia_nombre());
+        tecno.setTecnologia_nivel(skill.getTecnologia_nivel());
+        tecno.setTecnologia_imagen(skill.getTecnologia_imagen());
         
-        iTecnologia.saveTecnologia(tecno);
-        return tecno;
+        Tecnologia tecnoActualizada= iTecnologia.saveTecnologia(tecno);
+        return tecnoActualizada;
     }   
 }

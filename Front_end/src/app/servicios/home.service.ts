@@ -9,5 +9,5 @@ export class HomeService {
   url:String="http://localhost:8080/api/";
   constructor(private http:HttpClient) { }
 
-  obtenerDatos():Observable<any>(this.url);
+ 
 }

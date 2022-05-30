@@ -2,6 +2,7 @@
 package com.portfolio.backend.model;
 
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -31,23 +32,23 @@ public class Persona{
     private String persona_apellido;
         
     @NotNull
-    private String persona_mail;
+    private String persona_titulo;
         
-    @NotNull
+    @Column(nullable=false,length=300)
     private String persona_descripcion;
         
     @NotNull
+    @Column(nullable=false,length=300)
     private String persona_fotoperfil;
-    
-   
+
     public Persona() {
     }
 
-    public Persona(Long persona_id, String persona_nombre, String persona_apellido, String persona_mail, String persona_descripcion, String persona_fotoperfil) {
+    public Persona(Long persona_id, String persona_nombre, String persona_apellido, String persona_titulo, String persona_descripcion, String persona_fotoperfil) {
         this.persona_id = persona_id;
         this.persona_nombre = persona_nombre;
         this.persona_apellido = persona_apellido;
-        this.persona_mail = persona_mail;
+        this.persona_titulo = persona_titulo;
         this.persona_descripcion = persona_descripcion;
         this.persona_fotoperfil = persona_fotoperfil;
     }
@@ -76,12 +77,12 @@ public class Persona{
         this.persona_apellido = persona_apellido;
     }
 
-    public String getPersona_mail() {
-        return persona_mail;
+    public String getPersona_titulo() {
+        return persona_titulo;
     }
 
-    public void setPersona_mail(String persona_mail) {
-        this.persona_mail = persona_mail;
+    public void setPersona_titulo(String persona_titulo) {
+        this.persona_titulo = persona_titulo;
     }
 
     public String getPersona_descripcion() {
@@ -99,6 +100,7 @@ public class Persona{
     public void setPersona_fotoperfil(String persona_fotoperfil) {
         this.persona_fotoperfil = persona_fotoperfil;
     }
+    
 
    
 }

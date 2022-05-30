@@ -1,3 +1,24 @@
 #LogoAp{
     width: 180px;
 }
+.btn-primary{
+    background:#7dda0c;
+    border-radius: 10px;
+    font-size: 1.3em;
+    border:none;
+    margin-right: 7px;
+}
+div{
+    justify-content: space-between;
+}
+#Login{
+    align-items: flex-end;
+}
+@media (max-width:579px){
+    div{
+        display: flex;
+        align-items:  center;
+        justify-content: center;
+    }
+ 
+ }

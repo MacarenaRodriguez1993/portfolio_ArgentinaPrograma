@@ -22,16 +22,33 @@ export class EducacionComponent implements OnInit {
     this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
     this.obtenerEducaciones();
   }
-  private obtenerEducaciones(){
+  obtenerEducaciones(){
     this.educacionServicio.obtenerListaDeEducacion().subscribe(dato=>{
       this.edu=dato;
     })
   }
-
-  eliminarEducacion(educacion_id:number){
-    this.educacionServicio.eliminarEducacionPorId(educacion_id).subscribe(dato=>{
-      this.obtenerEducaciones();
-    })
+  //METODO PARA ELIMINAR
+  eliminarEducacion(id:number){
+  this.educacionServicio.eliminarEducacionPorId(id).subscribe(dato=>{
+    this.obtenerEducaciones();
+  })
   }
+
+  //REDIRECCION PARA EDITAR UNA EDUCACION 
+  editarEducacion(id:number){
+    this.router.navigate(['/editar-educacion',id]);
+  }
+  
+  //REDIRECCION PARA AGREGAR NUEVA EDUCACION
+  agrergarNuevaEducacion(){
+    this.router.navigate(['/agregar-educacion'])
+  }
+
+  
+
+  
+
+  
+  
 
 }

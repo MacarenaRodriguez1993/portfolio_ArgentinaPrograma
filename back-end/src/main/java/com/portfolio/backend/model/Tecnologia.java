@@ -1,6 +1,7 @@
 
 package com.portfolio.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Tecnologia {
     @NotNull
     private String tecnologia_nivel;
     
-    @NotNull
+    @Column(nullable=false,length=300)
     private String tecnologia_imagen;
 
     public Tecnologia() {

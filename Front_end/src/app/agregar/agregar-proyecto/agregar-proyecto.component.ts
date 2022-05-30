@@ -22,7 +22,6 @@ export class AgregarProyectoComponent implements OnInit {
 
   agregarProyecto(){
     this.proyectoServicio.agregarNuevoProyeto(this.proyecto).subscribe(dato=>{
-      console.log("holaMundo");
       this.volverHome();
     })
 

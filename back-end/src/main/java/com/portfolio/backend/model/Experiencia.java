@@ -1,6 +1,7 @@
 
 package com.portfolio.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Experiencia{
         
     private String experiencia_fecha;
         
-    @NotNull
+    @Column(nullable=false,length=300)
     private String experiencia_descripcion;
 
     public Experiencia() {

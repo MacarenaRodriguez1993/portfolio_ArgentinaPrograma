@@ -7,32 +7,33 @@ import { proyecto } from '../models/proyecto.model';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private baseUrl="http://localhost:8080/api/proyecto";
+  private baseUrl="https://portfolio-argentinaprograma.herokuapp.com";
+
   constructor(private httpClient: HttpClient) { }
 
+  //OBTENER UN PROYECTO
   obtenerListaDeProyectos():Observable<proyecto[]>{
-    return this.httpClient.get<proyecto[]>(`${this.baseUrl}`);
-  }
-
-  eliminarProyectoPorId(id:number):Observable<proyecto>{
-    return this.httpClient.delete<proyecto>(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<proyecto[]>(`${this.baseUrl}/api/proyecto`);
   }
 
   //OBTENER UN PROYECTO POR MEDIO DE SU ID
   obtenerProyectoPorId(id:number):Observable<proyecto>{
-    return this.httpClient.get<proyecto>(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<proyecto>(`${this.baseUrl}/api/proyecto/${id}`);
+  }
 
-
+  //ELIMINAR PROYECTO POR ID
+  eliminarProyectoPorId(id:number):Observable<proyecto>{
+    return this.httpClient.delete<proyecto>(`${this.baseUrl}/api/proyecto/${id}`);
   }
 
   //EDITAR PROYECTO
   editarProyectoPorId(id:number,proyecto:proyecto):Observable<proyecto>{
-    return this.httpClient.put<proyecto>(`${this.baseUrl}/${id}`,proyecto);
+    return this.httpClient.put<proyecto>(`${this.baseUrl}/api/proyecto/${id}`,proyecto);
   }
 
   //AGREGAR UN NUEVO PROYECTO
   agregarNuevoProyeto(proyecto:proyecto): Observable<proyecto>{
-    return this.httpClient.post<proyecto>(`${this.baseUrl}/crear`,proyecto);
+    return this.httpClient.post<proyecto>(`${this.baseUrl}/api/proyecto`,proyecto);
 
   }
 }

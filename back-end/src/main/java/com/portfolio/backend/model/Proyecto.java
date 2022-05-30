@@ -3,6 +3,7 @@ package com.portfolio.backend.model;
 
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,12 @@ public class Proyecto{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long proyecto_id;
- 
+    
     private String proyecto_nombre;
     private String proyecto_fecha;
+    @Column(nullable=false,length=300)
     private String proyecto_url;
+    @Column(nullable=false,length=300)
     private String proyecto_descripcion;
 
     public Proyecto() {

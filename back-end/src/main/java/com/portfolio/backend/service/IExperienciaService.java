@@ -21,5 +21,4 @@ public interface IExperienciaService {
     
     //METODO - buscar/encontrar una persona por id
     public Experiencia findExperiencia(Long id);
-    
 }

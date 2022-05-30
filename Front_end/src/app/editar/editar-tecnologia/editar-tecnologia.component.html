@@ -1,0 +1,35 @@
+<div class="col-md-6 offset-md-3">
+    <h2>Editar Skill</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre de la tecnologia</label>
+            <input type="text" class="form-control"
+                id="nombre"
+                [(ngModel)]="tecnologia.tecnologia_nombre"
+                name="nombre"
+                >
+        </div>
+
+        <div class="form-group">
+            <label>Nivel de la tecnologia</label>
+            <input type="text" class="form-control"
+                id="nivel"
+                [(ngModel)]="tecnologia.tecnologia_nivel"
+                name="nivel"
+                >
+        </div>
+
+        <div class="form-group">
+            <label>Link imagen tecnologia</label>
+            <input type="text" class="form-control"
+                id="url"
+                [(ngModel)]="tecnologia.tecnologia_imagen"
+                name="url"
+                >
+        </div>
+        
+        
+        <button class="btn btn-success">Guardar</button>
+
+    </form>
+</div>

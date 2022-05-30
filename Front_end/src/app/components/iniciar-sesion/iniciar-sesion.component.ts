@@ -10,14 +10,16 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 export class IniciarSesionComponent implements OnInit {
   form: FormGroup;
   
-  constructor(private formBuilder:FormBuilder,private autenticacionServicio:AutenticacionService, private ruta:Router) {
-    this.form= this.formBuilder.group(
-      {
-        email:['', [Validators.required, Validators.email]],
-        password:['',[Validators.required, Validators.minLength(4)]],
-      }
-    )
-   }
+  constructor(private formBuilder:FormBuilder,
+              private autenticacionServicio:AutenticacionService, 
+              private ruta:Router) {
+              this.form= this.formBuilder.group(
+                {
+                  email:['', [Validators.required, Validators.email]],
+                  password:['',[Validators.required, Validators.minLength(4)]],
+                }
+              )
+            }
 
   ngOnInit(): void {
   }

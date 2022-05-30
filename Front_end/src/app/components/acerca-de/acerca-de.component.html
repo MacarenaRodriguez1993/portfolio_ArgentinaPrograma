@@ -1,29 +1,23 @@
 <div class="container" *ngFor="let persona of persona">
     <div class="row">
-        <div class="col-4">
-            <img src="../../../assets/imagenes/perfilnew.jpg" id="Perfil">
-            
+        <div id="fotoPerfil" class="col-xs-12 col-sm-5 col-md-5  col-lg-4 col-xl-4">
+            <img class="img-fluid"src="../../../assets/imagenes/perfilnew.jpg" id="Perfil">
         </div>
-      
-        <div class="col-8" id="Descripcion">
-           <a  *ngIf="isUserLoggedIn" class="icon edit btn btn-success"
-            alt="Editar" title="Editar"data-original-title="Edit"
-            (click)= "editarPerfil(persona.persona_id)">
-            editar
-            </a>
-        
-            <div>
-                <h2>{{persona.persona_nombre}} {{persona.persona_apellido}}</h2>
-               
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8 col-xl-8" id="Informacion">
+            <div id="nombrePerfil">
+                <h2>{{persona.persona_nombre}} {{persona.persona_apellido}} 
+                    <button id="botonEditar"
+                        (click)= "editarPerfil(persona.persona_id)" 
+                        *ngIf="isUserLoggedIn">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                </h2>
             </div>
-            <div>
-                <h1>{{persona.persona_mail}}</h1>
-               
-                
+            <div class="row" id="tituloPerfil">
+                <h1>{{persona.persona_titulo}}</h1>  
             </div>
-            
-            <div>
-                <h2>SOBRE MI</h2>
+            <div id="descripcion">
+                <h3>SOBRE MI :</h3>
                 <p >{{persona.persona_descripcion}}
                 </p>
             </div>

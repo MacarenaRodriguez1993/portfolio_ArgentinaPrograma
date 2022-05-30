@@ -20,16 +20,25 @@ export class ExperienciaComponent implements OnInit {
     this.isUserLoggedIn=this.autenticacionServicio.isUserLoggedIn();
     this.obtenerExperiencia();
   }
-  private obtenerExperiencia(){
+  obtenerExperiencia(){
     this.experienciaServicio.obtenerListaDeExperiencias().subscribe(dato => {
       this.experiencia=dato;
     });
   }
 
+  agrergarNuevaExperiencia(){
+    this.router.navigate(['/agregar-experiencia']);
+  }
+
   eliminarExperiencia(id:number){
-    this.experienciaServicio.eliminarExperienciaPorId(id).subscribe(dato => {
+    this.experienciaServicio.eliminarExperienciaPorId(id).subscribe(dato=>{
       this.obtenerExperiencia();
     })
+  }
+
+
+  editarExperiencia(id:number){
+    this.router.navigate(['/editar-experiencia',id]);
   }
  
 }

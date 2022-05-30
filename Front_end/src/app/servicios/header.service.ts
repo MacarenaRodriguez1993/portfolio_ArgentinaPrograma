@@ -8,7 +8,7 @@ import { persona } from '../models/persona.model';
   providedIn: 'root'
 })
 export class HeaderService {
-  URL="http://localhost:8080/api/personas";
+  URL="https://portfolio-argentinaprograma.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
@@ -17,14 +17,14 @@ export class HeaderService {
   }
 
   public addPersona(): Observable<persona> {
-    return this.http.post<persona>(this.URL+'crear',persona);
+    return this.http.post<persona>(this.URL+'/api/personas/crear',persona);
   }
 
   public updatePersona(persona: persona): Observable<persona> {
-    return this.http.put<persona>(this.URL+'editar/2',persona);
+    return this.http.put<persona>(this.URL+'/api/personas/editar/2',persona);
   }
 
   public deletePersona(): Observable<persona> {
-    return this.http.delete<persona>(this.URL+'eliminar/${persona_id}');
+    return this.http.delete<persona>(this.URL+'/api/personas/eliminar/${persona_id}');
   }
 }

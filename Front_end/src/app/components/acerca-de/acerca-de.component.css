@@ -9,10 +9,31 @@ img{
 h2{
     text-align: center;
 }
+button{
+    border-radius: 5px;
+    border: none;
+    background-color: #c3b8c7;
+    margin :3px;
+}
 #Titulo{
     text-align: center;
 }
-#Descripcion{
+#Informacion{
     
     text-align: center;
 }
+
+@media (max-width: 575.98px){
+    #fotoPerfil{
+        position: absolute;
+        width: 60%;
+        border-radius: 100%;
+        left:23%;   
+        margin-top: -23px;
+      }
+
+    #Informacion{
+        margin-top: 210px;
+    }
+}
+

@@ -14,7 +14,7 @@ public interface ITecnologiaService {
     public List<Tecnologia> getTecnologia();
     
     //METODO - dar de alta/agregar una tecnologia nueva
-    public void saveTecnologia(Tecnologia tecno);
+    public Tecnologia saveTecnologia(Tecnologia tecno);
     
     //METODO - eliminar una tecnologia
     public void deleteTecnologia(Long tecnologia_id);

@@ -24,8 +24,8 @@ public class TecnologiaService implements ITecnologiaService{
     }
 
     @Override
-    public void saveTecnologia(Tecnologia tecno) {
-        tecnoRepository.save(tecno);
+    public Tecnologia saveTecnologia(Tecnologia tecno) {
+        return tecnoRepository.save(tecno);
     }
 
     @Override

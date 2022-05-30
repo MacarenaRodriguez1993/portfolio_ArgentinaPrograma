@@ -8,16 +8,31 @@ import { experiencia } from '../models/experiencia.model';
 })
 export class ExperienciaService {
 
-  private baseUrl = "http://localhost:8080/api/experiencia";
+  private baseUrl = "https://portfolio-argentinaprograma.herokuapp.com";
 
   constructor(private httpClient: HttpClient) { }
 
   obtenerListaDeExperiencias(): Observable<experiencia[]>{
-    return this.httpClient.get<experiencia[]>(`${this.baseUrl}`);
+    return this.httpClient.get<experiencia[]>(`${this.baseUrl}/api/experiencia`);
+  }
+  //Obtener experiencia por id
+  obtenerExperienciaPorId(id:number): Observable<experiencia>{
+    return this.httpClient.get<experiencia>(`${this.baseUrl}/api/experiencia/${id}`);
+  }
+  //Eliminar experiencia por id
+  eliminarExperienciaPorId(id:number): Observable<experiencia>{
+    return this.httpClient.delete<experiencia>(`${this.baseUrl}/api/experiencia/${id}`);
   }
 
-  eliminarExperienciaPorId(id:number): Observable<experiencia>{
-    return this.httpClient.delete<experiencia>(`${this.baseUrl}/${id}`);
+  //METODO PARA AGREGAR NUEVA EXPERIENCIA
+  agregarNuevoProyecto(experiencia:experiencia): Observable<experiencia>{
+    return this.httpClient.post<experiencia>(`${this.baseUrl}/api/experiencia`, experiencia);
+  }
+
+
+  
+  editarExperienciaPorId(id:number,experiencia:experiencia): Observable<experiencia>{
+    return this.httpClient.put<experiencia>(`${this.baseUrl}/api/experiencia/${id}`,experiencia);
   }
   
 }

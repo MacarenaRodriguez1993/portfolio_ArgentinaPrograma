@@ -1,5 +1,7 @@
 package com.portfolio.backend.model;
 
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,20 +13,32 @@ import javax.validation.constraints.NotNull;
  * @author macab
  */
 @Entity
-public class Educacion {
+public class Educacion implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long educacion_id;
 
-    @NotNull
+    @Column(nullable=false,length=100)
     private String educacion_establecimiento;
-    @NotNull
+    @Column(nullable=false,length=100)
     private String educacion_nombre;
-    private int educacion_fecha;
+    
+    private String educacion_fecha;
 
-    @NotNull
+    @Column(nullable=false,length=300)
     private String educacion_descripcion;
+
+    public Educacion() {
+    }
+
+    public Educacion(Long educacion_id, String educacion_establecimiento, String educacion_nombre, String educacion_fecha, String educacion_descripcion) {
+        this.educacion_id = educacion_id;
+        this.educacion_establecimiento = educacion_establecimiento;
+        this.educacion_nombre = educacion_nombre;
+        this.educacion_fecha = educacion_fecha;
+        this.educacion_descripcion = educacion_descripcion;
+    }
 
     public Long getEducacion_id() {
         return educacion_id;
@@ -50,11 +64,11 @@ public class Educacion {
         this.educacion_nombre = educacion_nombre;
     }
 
-    public int getEducacion_fecha() {
+    public String getEducacion_fecha() {
         return educacion_fecha;
     }
 
-    public void setEducacion_fecha(int educacion_fecha) {
+    public void setEducacion_fecha(String educacion_fecha) {
         this.educacion_fecha = educacion_fecha;
     }
 
@@ -65,18 +79,6 @@ public class Educacion {
     public void setEducacion_descripcion(String educacion_descripcion) {
         this.educacion_descripcion = educacion_descripcion;
     }
-
-    public Educacion(Long educacion_id, String educacion_establecimiento, String educacion_nombre, int educacion_fecha, String educacion_descripcion) {
-        this.educacion_id = educacion_id;
-        this.educacion_establecimiento = educacion_establecimiento;
-        this.educacion_nombre = educacion_nombre;
-        this.educacion_fecha = educacion_fecha;
-        this.educacion_descripcion = educacion_descripcion;
-    }
-
-    public Educacion() {
-    }
-
     
 
 }

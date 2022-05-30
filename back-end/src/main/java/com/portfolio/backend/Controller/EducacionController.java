@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 /**
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/educacion")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-argentinaprogr-7832c.web.app")
 public class EducacionController {
     
     @Autowired
@@ -37,12 +37,21 @@ public class EducacionController {
     public List<Educacion> getEducacion(){
         return iEducacion.getEducacion();
     }
+    
+    //TRAER UNA EDUCACION POR ID
+    @GetMapping("{id}")
+    public Educacion obtenerEducacionPorId(@PathVariable Long id){
+        Educacion educ=iEducacion.findEducacion(id);
+        return educ;
+    }
    
     //CREAR UNA NUEVA EDUCACION
     @PostMapping
-    public String crearEducacion(@RequestBody Educacion educ){
-        iEducacion.saveEducacion(educ);
-        return "Se creo una nueva educacion";
+    /*public Educacion crearEducacion(@RequestBody Educacion educ){
+        return iEducacion.saveEducacion(educ);
+    }*/
+    public Educacion crearEducacion(@RequestBody Educacion educacion){
+        return iEducacion.saveEducacion(educacion);
     }
     
     //ELIMINAR UN TIPO DE EDUCACION POR ID
@@ -54,19 +63,14 @@ public class EducacionController {
     
     //EDITAR UNA EDUCACION POR ID
     @PutMapping("/{editar_id}")
-    public Educacion editarEducacion(@PathVariable Long editar_id ,
-                                     @RequestParam ("educacion_establecimiento")String nuevoEstablecimiento,
-                                     @RequestParam ("educacion_nombre")String nuevoNombre,
-                                     @RequestParam("educacion_fecha") int nuevoAño,
-                                     @RequestParam("educacion_descripcion")String nuevaDescripcion){
-        Educacion educacion=iEducacion.findEducacion(editar_id);
+    public Educacion editarEducacion(@PathVariable Long editar_id ,@RequestBody Educacion educ){
+        Educacion educac=iEducacion.findEducacion(editar_id);
+        educac.setEducacion_establecimiento(educ.getEducacion_establecimiento());
+        educac.setEducacion_nombre(educ.getEducacion_nombre());
+        educac.setEducacion_fecha(educ.getEducacion_fecha());
+        educac.setEducacion_descripcion(educ.getEducacion_descripcion());
         
-        educacion.setEducacion_establecimiento(nuevoEstablecimiento);
-        educacion.setEducacion_nombre(nuevoNombre);
-        educacion.setEducacion_fecha(nuevoAño);
-        educacion.setEducacion_descripcion(nuevaDescripcion);
-        
-        iEducacion.saveEducacion(educacion);
-        return educacion;
+        Educacion educacionActualizada =iEducacion.saveEducacion(educ);
+        return educacionActualizada;
     }
 }

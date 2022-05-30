@@ -1,0 +1,34 @@
+<div class="col-md-6 offset-md-3">
+    <h2>Editar educacion </h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre del establecimiento </label>
+            <input type="text" class="form-control"
+                id="establecimiento"
+                [(ngModel)]="educacion.educacion_establecimiento"
+                name="establecimiento">
+        </div>
+        <div class="form-group">
+            <label>Nombre del titulo</label>
+            <input type="text" class="form-control"
+                id="nombretitulo"
+                [(ngModel)]="educacion.educacion_nombre"
+                name="nombretitulo">
+        </div>
+        <div class="form-group">
+            <label>fecha</label>
+            <input type="text" class="form-control"
+                id="fecha"
+                [(ngModel)]="educacion.educacion_fecha"
+                name="fecha">
+        </div>
+        <div class="form-group">
+            <label>Descripcion de la educacion </label>
+            <input type="text" class="form-control"
+                id="descripcion"
+                [(ngModel)]="educacion.educacion_descripcion"
+                name="descripcion">
+        </div>
+        <button class="btn btn-success" >Guardar</button>
+    </form>
+</div>

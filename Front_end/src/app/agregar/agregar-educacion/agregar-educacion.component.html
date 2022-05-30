@@ -1,1 +1,36 @@
-<h1>hola mundo</h1>
+<div class="col-md-6 offset-md-3">
+    <h2>Edicion de proyecto </h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Establecimiento</label>
+            <input type="text" class="form-control"
+                id="establecimiento"
+                [(ngModel)]="educacion.educacion_establecimiento"
+                name="establecimiento"
+            >
+        </div>
+        <div class="form-group">
+            <label>Nombre o titulacion</label>
+            <input type="text" class="form-control"
+                id="nombre"
+                [(ngModel)]="educacion.educacion_nombre"
+                name="nombre">
+        </div>
+
+        <div class="form-group">
+            <label>fecha de egreso</label>
+            <input type="number" class="form-control"
+                id="fecha"
+                [(ngModel)]="educacion.educacion_fecha"
+                name="fecha">
+        </div>
+        <div class="form-group">
+            <label>Descripcion</label>
+            <input type="text" class="form-control"
+                id="descripcion"
+                [(ngModel)]="educacion.educacion_descripcion"
+                name="descripcion">
+        </div>
+        <button class="btn btn-success" >Guardar</button>
+    </form>
+</div>

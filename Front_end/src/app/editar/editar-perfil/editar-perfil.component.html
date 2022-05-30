@@ -1,0 +1,35 @@
+<div class="col-md-6 offset-md-3">
+    <h2>Editar Perfil </h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre de la persona </label>
+            <input type="text" class="form-control"
+                id="nombre"
+                [(ngModel)]="persona.persona_nombre"
+                name="nombre">
+        </div>
+        <div class="form-group">
+            <label>Apellido de la persona </label>
+            <input type="text" class="form-control"
+                id="apellido"
+                [(ngModel)]="persona.persona_apellido"
+                name="apellido">
+        </div>
+        <div class="form-group">
+            <label>Titulo</label>
+            <input type="text" class="form-control"
+                id="nombretitulo"
+                [(ngModel)]="persona.persona_titulo"
+                name="nombretitulo">
+        </div>
+        
+        <div class="form-group">
+            <label>Descripcion o reseña  </label>
+            <input type="text" class="form-control"
+                id="descripcion"
+                [(ngModel)]="persona.persona_descripcion"
+                name="descripcion">
+        </div>
+        <button class="btn btn-success" >Guardar</button>
+    </form>
+</div>

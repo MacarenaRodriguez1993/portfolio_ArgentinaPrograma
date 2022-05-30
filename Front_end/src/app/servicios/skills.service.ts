@@ -9,14 +9,29 @@ import {tecnologia } from '../models/tecnologia.model';
 export class SkillsService {
 
   
-  private baseUrl="http://localhost:8080/api/tecnologia";
+  private baseUrl="https://portfolio-argentinaprograma.herokuapp.com";
   constructor(private httpClient:HttpClient) { }
 
+  //METODO GET PARA VER LAS SKILLS
   obtenerListaDeTecnologia(): Observable<tecnologia[]>{
-    return this.httpClient.get<tecnologia[]>(`${this.baseUrl}`);
+    return this.httpClient.get<tecnologia[]>(`${this.baseUrl}/api/tecnologia`);
+  }
+  //METODO DELETE PARA ELIMINAR UNA SKILLS POR ID
+  eliminarTecnologiaPorId(id:number):Observable<tecnologia>{
+    return this.httpClient.delete<tecnologia>(`${this.baseUrl}/api/tecnologia/${id}`);
+  }
+  //METODO GET PARA OBTENER UNA SKILLS POR ID
+  obtenerSkillsPorId(id:number):Observable<tecnologia> {
+    return this.httpClient.get<tecnologia>(`${this.baseUrl}/api/tecnologia/${id}`);
   }
 
-  eliminarTecnologiaPorId(id:number):Observable<tecnologia>{
-    return this.httpClient.delete<tecnologia>(`${this.baseUrl}/${id}`);
+  //METODO POST PARA AGREGAR NUEVA SKILLS
+  agregarNuevaSkill(skill:tecnologia):Observable<tecnologia>{
+    return this.httpClient.post<tecnologia>(`${this.baseUrl}/api/tecnologia`,skill);
   }
+  //METODO PUT PARA EDITAR UNA SKILLS POR ID
+  editarSkillPorId(id:number,skill:tecnologia):Observable<tecnologia>{
+    return this.httpClient.put<tecnologia>(`${this.baseUrl}/api/tecnologia/${id}`,skill);
+  }
+
 }

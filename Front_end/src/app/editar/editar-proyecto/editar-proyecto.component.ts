@@ -28,7 +28,6 @@ export class EditarProyectoComponent implements OnInit {
     this.router.navigate(['/home']);
   }
   onSubmit(){
-    
     this.proyectoServicio.editarProyectoPorId(this.id,this.proyecto).subscribe(dato =>{
       this.volverHome();
     })
