@@ -26,17 +26,21 @@ public class Educacion implements Serializable {
     
     private String educacion_fecha;
 
-    @Column(nullable=false,length=300)
+    @Column(nullable=false, length=300)
+    private String educacion_imagen;
+    
+    @Column(nullable=false,length=3000)
     private String educacion_descripcion;
 
     public Educacion() {
     }
 
-    public Educacion(Long educacion_id, String educacion_establecimiento, String educacion_nombre, String educacion_fecha, String educacion_descripcion) {
+    public Educacion(Long educacion_id, String educacion_establecimiento, String educacion_nombre, String educacion_fecha, String educacion_imagen, String educacion_descripcion) {
         this.educacion_id = educacion_id;
         this.educacion_establecimiento = educacion_establecimiento;
         this.educacion_nombre = educacion_nombre;
         this.educacion_fecha = educacion_fecha;
+        this.educacion_imagen = educacion_imagen;
         this.educacion_descripcion = educacion_descripcion;
     }
 
@@ -72,6 +76,14 @@ public class Educacion implements Serializable {
         this.educacion_fecha = educacion_fecha;
     }
 
+    public String getEducacion_imagen() {
+        return educacion_imagen;
+    }
+
+    public void setEducacion_imagen(String educacion_imagen) {
+        this.educacion_imagen = educacion_imagen;
+    }
+
     public String getEducacion_descripcion() {
         return educacion_descripcion;
     }
@@ -79,6 +91,6 @@ public class Educacion implements Serializable {
     public void setEducacion_descripcion(String educacion_descripcion) {
         this.educacion_descripcion = educacion_descripcion;
     }
-    
 
+    
 }

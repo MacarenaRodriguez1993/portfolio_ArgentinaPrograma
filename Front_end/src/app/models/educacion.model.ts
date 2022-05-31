@@ -3,5 +3,6 @@ export class educacion{
     educacion_establecimiento:String;
     educacion_nombre:String;
     educacion_fecha:String;
+    educacion_imagen:String;
     educacion_descripcion:String;
 }

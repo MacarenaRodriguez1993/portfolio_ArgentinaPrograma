@@ -30,19 +30,11 @@ public class Experiencia{
         
         
     private String experiencia_fecha;
-        
-    @Column(nullable=false,length=300)
+
+    @Column(length=300)
+    private String experiencia_imagen;
+    @Column(nullable=false,length=3000)
     private String experiencia_descripcion;
-
-    public Experiencia() {
-    }
-
-    public Experiencia(Long experiencia_id, String experiencia_nombre, String experiencia_fecha, String experiencia_descripcion) {
-        this.experiencia_id = experiencia_id;
-        this.experiencia_nombre = experiencia_nombre;
-        this.experiencia_fecha = experiencia_fecha;
-        this.experiencia_descripcion = experiencia_descripcion;
-    }
 
     public Long getExperiencia_id() {
         return experiencia_id;
@@ -68,6 +60,14 @@ public class Experiencia{
         this.experiencia_fecha = experiencia_fecha;
     }
 
+    public String getExperiencia_imagen() {
+        return experiencia_imagen;
+    }
+
+    public void setExperiencia_imagen(String experiencia_imagen) {
+        this.experiencia_imagen = experiencia_imagen;
+    }
+
     public String getExperiencia_descripcion() {
         return experiencia_descripcion;
     }
@@ -75,4 +75,17 @@ public class Experiencia{
     public void setExperiencia_descripcion(String experiencia_descripcion) {
         this.experiencia_descripcion = experiencia_descripcion;
     }
+
+    public Experiencia(Long experiencia_id, String experiencia_nombre, String experiencia_fecha, String experiencia_imagen, String experiencia_descripcion) {
+        this.experiencia_id = experiencia_id;
+        this.experiencia_nombre = experiencia_nombre;
+        this.experiencia_fecha = experiencia_fecha;
+        this.experiencia_imagen = experiencia_imagen;
+        this.experiencia_descripcion = experiencia_descripcion;
+    }
+
+    public Experiencia() {
+    }
+
+    
 }

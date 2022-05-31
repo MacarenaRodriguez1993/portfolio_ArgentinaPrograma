@@ -68,6 +68,7 @@ public class EducacionController {
         educac.setEducacion_establecimiento(educ.getEducacion_establecimiento());
         educac.setEducacion_nombre(educ.getEducacion_nombre());
         educac.setEducacion_fecha(educ.getEducacion_fecha());
+        educac.setEducacion_imagen(educ.getEducacion_imagen());
         educac.setEducacion_descripcion(educ.getEducacion_descripcion());
         
         Educacion educacionActualizada =iEducacion.saveEducacion(educ);

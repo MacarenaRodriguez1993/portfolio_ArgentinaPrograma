@@ -38,7 +38,7 @@ public class Persona{
     private String persona_descripcion;
         
     @NotNull
-    @Column(nullable=false,length=300)
+    @Column(nullable=false,length=3000)
     private String persona_fotoperfil;
 
     public Persona() {

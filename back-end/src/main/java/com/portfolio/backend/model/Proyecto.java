@@ -26,7 +26,7 @@ public class Proyecto{
     private String proyecto_fecha;
     @Column(nullable=false,length=300)
     private String proyecto_url;
-    @Column(nullable=false,length=300)
+    @Column(nullable=false,length=3000)
     private String proyecto_descripcion;
 
     public Proyecto() {

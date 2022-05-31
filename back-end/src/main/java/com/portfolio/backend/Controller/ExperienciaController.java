@@ -57,6 +57,7 @@ public class ExperienciaController {
         Experiencia exp=iExperiencia.findExperiencia(id);
         exp.setExperiencia_nombre(nuevoExperiencia.getExperiencia_nombre());
         exp.setExperiencia_fecha(nuevoExperiencia.getExperiencia_fecha());
+        exp.setExperiencia_imagen(nuevoExperiencia.getExperiencia_imagen());
         exp.setExperiencia_descripcion(nuevoExperiencia.getExperiencia_descripcion());
         
         Experiencia experiencia = iExperiencia.saveExperiencia(exp);
