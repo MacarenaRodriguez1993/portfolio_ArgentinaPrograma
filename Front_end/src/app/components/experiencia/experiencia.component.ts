@@ -31,6 +31,7 @@ export class ExperienciaComponent implements OnInit {
   }
 
   eliminarExperiencia(id:number){
+    alert("Estas seguro de eliminar?");
     this.experienciaServicio.eliminarExperienciaPorId(id).subscribe(dato=>{
       this.obtenerExperiencia();
     })

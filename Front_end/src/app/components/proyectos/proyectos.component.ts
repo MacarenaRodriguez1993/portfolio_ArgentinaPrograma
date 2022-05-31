@@ -29,6 +29,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   eliminarProyecto(id:number){
+    alert("Estas seguro de eliminar?");
     this.proyectoServicio.eliminarProyectoPorId(id).subscribe(dato=>{
       this.obtenerProyectos();
     })

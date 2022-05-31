@@ -29,7 +29,7 @@ export class EducacionComponent implements OnInit {
   }
   //METODO PARA ELIMINAR
   eliminarEducacion(id:number){
-    alert("estas seguro de eliminar?");
+    alert("Estas seguro de eliminar?");
     this.educacionServicio.eliminarEducacionPorId(id).subscribe(dato=>{
     this.obtenerEducaciones();
   })
@@ -44,12 +44,5 @@ export class EducacionComponent implements OnInit {
   agrergarNuevaEducacion(){
     this.router.navigate(['/agregar-educacion'])
   }
-
-  
-
-  
-
-  
-  
 
 }

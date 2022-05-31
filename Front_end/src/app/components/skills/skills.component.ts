@@ -30,6 +30,7 @@ export class SkillsComponent implements OnInit {
   }
   //EliminarTecnologia
   eliminarTecnologia(id:number){
+    alert("Estas seguro de eliminar?");
     this.skillServicios.eliminarTecnologiaPorId(id).subscribe(dato => {
       this.obtenerTecnologias();
     })
