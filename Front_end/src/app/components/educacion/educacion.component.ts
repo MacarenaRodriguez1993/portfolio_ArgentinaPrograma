@@ -29,7 +29,8 @@ export class EducacionComponent implements OnInit {
   }
   //METODO PARA ELIMINAR
   eliminarEducacion(id:number){
-  this.educacionServicio.eliminarEducacionPorId(id).subscribe(dato=>{
+    alert("estas seguro de eliminar?");
+    this.educacionServicio.eliminarEducacionPorId(id).subscribe(dato=>{
     this.obtenerEducaciones();
   })
   }
