@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HomeService {
-  url:String="http://localhost:8080/api/";
-  constructor(private http:HttpClient) { }
-
- 
+  url: String =
+    'https://portfolioargentinaprograma-production.up.railway.app/api/';
+  constructor(private http: HttpClient) {}
 }
