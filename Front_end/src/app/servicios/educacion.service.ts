@@ -8,7 +8,7 @@ import { educacion } from '../models/educacion.model';
 })
 export class EducacionService {
   private baseUrl =
-    'https://portfolioargentinaprograma-production.up.railway.app/';
+    'https://portfolioargentinaprograma-production.up.railway.app';
 
   constructor(private httpClient: HttpClient) {}
 
